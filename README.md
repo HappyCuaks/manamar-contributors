@@ -1,0 +1,1 @@
+# manamar-contributors
