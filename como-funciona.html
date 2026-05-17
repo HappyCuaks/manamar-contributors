@@ -431,6 +431,12 @@ footer {
     white-space: nowrap; flex-shrink: 0;
   }
 
+
+  .lang-switcher{display:flex;gap:2px;align-items:center;background:rgba(63,59,120,0.08);border-radius:3px;padding:2px;}
+  .lang-btn{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--indigo);background:none;border:none;padding:4px 8px;border-radius:2px;cursor:pointer;opacity:0.45;transition:opacity 0.2s,background 0.2s;font-family:'Trap',sans-serif;}
+  .lang-btn:hover{opacity:0.8;}
+  .lang-btn.active{background:var(--indigo);color:white;opacity:1;}
+
 </style>
 </head>
 <body class="grid-cream">
@@ -473,17 +479,17 @@ footer {
       <div class="tl-today-dot">
         <span id="tl-today-label">Hoy</span>
       </div>
-      <span class="tl-today-text">Estamos aquí</span>
+      <span class="tl-today-text" data-i18n="tl_today">Estem aquí</span>
     </div>
 
     <!-- PHASE 1 -->
     <div class="tl-phase fade-up" data-from="2026-06-01" data-to="2026-08-31">
       <div class="tl-dot" id="dot-0"></div>
-      <div class="tl-month">Junio 2026</div>
+      <div class="tl-month" data-i18n="tl_phase1_month">Juny 2026</div>
       <div class="tl-card">
         <div class="tl-card-head">
-          <div class="tl-card-title">Apertura de inscripciones</div>
-          <span class="tl-badge badge-open">Abierto</span>
+          <div class="tl-card-title" data-i18n="tl_phase1_title">Apertura d'inscripcions</div>
+          <span class="tl-badge badge-open" data-i18n="tl_phase1_badge">Obert</span>
         </div>
         <p class="tl-card-desc">Se publica el programa Contributors. Cualquier experto en la geografia marina o superior puede registrarse rellenando el Google Form con sus datos y foto de certificación.</p>
         <div class="tl-tags">
@@ -496,11 +502,11 @@ footer {
     <!-- PHASE 1.5 -->
     <div class="tl-phase fade-up" data-from="2026-06-01" data-to="2026-08-31">
       <div class="tl-dot"></div>
-      <div class="tl-month">Junio — Agosto 2026</div>
+      <div class="tl-month" data-i18n="tl_phase15_month">Juny — Agost 2026</div>
       <div class="tl-card">
         <div class="tl-card-head">
-          <div class="tl-card-title">Instala la app y empieza a guardar puntos</div>
-          <span class="tl-badge badge-action">Tu turno</span>
+          <div class="tl-card-title" data-i18n="tl_phase15_title">Instal·la l'app i comença a guardar punts</div>
+          <span class="tl-badge badge-action" data-i18n="tl_phase15_badge">El teu torn</span>
         </div>
         <p class="tl-card-desc">Durante toda la temporada de verano, usa ManaMar en tus inmersiones. Guarda los puntos de interés de tu zona — relieves, especies, zonas especiales. En septiembre nos los enviarás todos de una vez.</p>
         <div class="tl-tags">
@@ -513,11 +519,11 @@ footer {
     <!-- PHASE 2 -->
     <div class="tl-phase fade-up" data-from="2026-09-01" data-to="2026-09-06">
       <div class="tl-dot" id="dot-1"></div>
-      <div class="tl-month">Septiembre 2026</div>
+      <div class="tl-month" data-i18n="tl_phase2_month">Setembre 2026</div>
       <div class="tl-card">
         <div class="tl-card-head">
-          <div class="tl-card-title">Envío del link de entrega</div>
-          <span class="tl-badge badge-action">Acción Manamar</span>
+          <div class="tl-card-title" data-i18n="tl_phase2_title">Enviament del link d'entrega</div>
+          <span class="tl-badge badge-action" data-i18n="tl_phase2_badge">Acció Manamar</span>
         </div>
         <p class="tl-card-desc">Todos los inscritos reciben por email un link exclusivo para subir sus puntos GPS. Este email llevará instrucciones de cómo compartir los puntos guardados durante la temporada.</p>
         <div class="tl-tags">
@@ -531,11 +537,11 @@ footer {
     <!-- PHASE 3 -->
     <div class="tl-phase fade-up" data-from="2026-09-07" data-to="2026-09-14">
       <div class="tl-dot" id="dot-2"></div>
-      <div class="tl-month">Septiembre 2026 · 1 semana</div>
+      <div class="tl-month" data-i18n="tl_phase3_month">Setembre 2026 · 1 setmana</div>
       <div class="tl-card">
         <div class="tl-card-head">
-          <div class="tl-card-title">Ventana de entrega de puntos</div>
-          <span class="tl-badge badge-now">7 días</span>
+          <div class="tl-card-title" data-i18n="tl_phase3_title">Finestra d'entrega de punts</div>
+          <span class="tl-badge badge-now" data-i18n="tl_phase3_badge">7 dies</span>
         </div>
         <p class="tl-card-desc">Los contributors tienen exactamente 1 semana para subir su ZIP con puntos GPS y fotos. El sistema agrupa automáticamente los duplicados a menos de 50m.</p>
         <div class="tl-tags">
@@ -547,11 +553,11 @@ footer {
     <!-- PHASE 4 -->
     <div class="tl-phase fade-up" data-from="2026-10-01" data-to="2026-12-31">
       <div class="tl-dot" id="dot-3"></div>
-      <div class="tl-month">Octubre — Diciembre 2026</div>
+      <div class="tl-month" data-i18n="tl_phase4_month">Octubre — Desembre 2026</div>
       <div class="tl-card">
         <div class="tl-card-head">
-          <div class="tl-card-title">Revisión y verificación</div>
-          <span class="tl-badge badge-action">Equipo Manamar</span>
+          <div class="tl-card-title" data-i18n="tl_phase4_title">Revisió i verificació</div>
+          <span class="tl-badge badge-action" data-i18n="tl_phase4_badge">Equip Manamar</span>
         </div>
         <p class="tl-card-desc">El equipo revisa manualmente los puntos huérfanos que el sistema no ha podido agrupar. Se valida la calidad de los datos y se prepara la base del mapa.</p>
         <div class="tl-tags">
@@ -566,11 +572,11 @@ footer {
     <!-- PHASE 5 -->
     <div class="tl-phase fade-up" data-from="2027-03-01" data-to="2027-12-31">
       <div class="tl-dot" id="dot-4"></div>
-      <div class="tl-month">Primavera 2027</div>
+      <div class="tl-month" data-i18n="tl_phase5_month">Primavera 2027</div>
       <div class="tl-card">
         <div class="tl-card-head">
-          <div class="tl-card-title">Lanzamiento del mapa colaborativo</div>
-          <span class="tl-badge badge-launch">Lanzamiento</span>
+          <div class="tl-card-title" data-i18n="tl_phase5_title">Llançament del mapa col·laboratiu</div>
+          <span class="tl-badge badge-launch" data-i18n="tl_phase5_badge">Llançament</span>
         </div>
         <p class="tl-card-desc">El mapa colaborativo se publica con todos los puntos verificados. Cada punto aparece vinculado al nombre del contributor. Los contributors reciben acceso anticipado.</p>
         <div class="tl-tags">
@@ -585,10 +591,10 @@ footer {
     <div class="tl-reward fade-up">
       <div class="tl-reward-icon">🎁</div>
       <div>
-        <div class="tl-reward-title">Premio para contributors de 2026</div>
+        <div class="tl-reward-title" data-i18n="tl_reward_title">Premi per als contributors del 2026</div>
         <div class="tl-reward-desc">Todos los contributors que entreguen sus puntos en la ventana oficial recibirán una suscripción gratuita a Manamar para 2027.</div>
       </div>
-      <div class="tl-reward-pill">Suscripción 2027</div>
+      <div class="tl-reward-pill" data-i18n="tl_reward_pill">Subscripció 2027</div>
     </div>
 
   </div>
@@ -598,33 +604,33 @@ footer {
 
 <!-- BENEFICIOS -->
 <section class="benefits-section grid-dark">
-  <div class="section-tag fade-up">Lo que recibes</div>
+  <div class="section-tag fade-up" data-i18n="benefits_tag">El que reps</div>
   <h2 class="fade-up">Tu contribución<br>tiene <em>valor</em></h2>
   <p class="benefits-intro fade-up">Ser contributor no es solo aportar datos. Es formar parte del equipo que construye el primer mapa submarino colaborativo de calidad profesional.</p>
   <div class="benefits-grid">
     <div class="benefit-card fade-up">
       <div class="benefit-num">01</div>
-      <div class="benefit-title">Acceso ilimitado gratuito</div>
+      <div class="benefit-title" data-i18n="benefit_1_title">Accés il·limitat gratuït</div>
       <div class="benefit-desc">Acceso completo a la app ManaMar durante 2027, con todas las funcionalidades desbloqueadas.</div>
     </div>
     <div class="benefit-card fade-up">
       <div class="benefit-num">02</div>
-      <div class="benefit-title">Badge contributor oficial</div>
+      <div class="benefit-title" data-i18n="benefit_2_title">Badge contributor oficial</div>
       <div class="benefit-desc">Perfil público verificado con etiqueta "Contributor Oficial Manamar". Visibilidad en la comunidad.</div>
     </div>
     <div class="benefit-card fade-up">
       <div class="benefit-num">03</div>
-      <div class="benefit-title">Tu nombre en el mapa</div>
+      <div class="benefit-title" data-i18n="benefit_3_title">El teu nom al mapa</div>
       <div class="benefit-desc">Cada punto que aportes aparece vinculado a tu nombre o centro. Publicidad orgánica en cada consulta.</div>
     </div>
     <div class="benefit-card fade-up">
       <div class="benefit-num">04</div>
-      <div class="benefit-title">Primero en enterarte</div>
+      <div class="benefit-title" data-i18n="benefit_4_title">Primer en assabentar-te</div>
       <div class="benefit-desc">Recibirás todas las novedades del programa antes que nadie — nuevas funciones, lanzamientos y actualizaciones del mapa directamente en tu email.</div>
     </div>
     <div class="benefit-card fade-up">
       <div class="benefit-num">05</div>
-      <div class="benefit-title">Programa de referidos</div>
+      <div class="benefit-title" data-i18n="benefit_5_title">Programa de referits</div>
       <div class="benefit-desc">Comisión o descuento cuando recomiendes suscripciones a tu comunidad.</div>
     </div>
   </div>
@@ -634,7 +640,7 @@ footer {
 
 <!-- REQUISITOS -->
 <section class="req-section grid-dark">
-  <div class="section-tag fade-up">Requisitos</div>
+  <div class="section-tag fade-up" data-i18n="req_tag">Requisits</div>
   <h2 class="fade-up" style="color:white;">¿Quién puede<br>aplicar?</h2>
   <div class="req-layout">
     <div class="fade-up">
@@ -686,11 +692,11 @@ footer {
 
 <!-- CTA FINAL -->
 <section class="final-cta grid-cream">
-  <h2>¿Todo claro?<br><em>Únete.</em></h2>
+  <h2 data-i18n="final_h2">Tot clar?<br>Uneix-te.</h2>
   <p>El programa arranca en septiembre 2026. Regístrate ahora y te avisamos en cuanto abra la inscripción oficial.</p>
   <div class="final-cta-actions">
-    <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-primary">Quiero ser contributor →</a>
-    <a href="index.html" class="btn-outline">← Volver al inicio</a>
+    <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-primary" data-i18n="final_cta">Vull ser contributor →</a>
+    <a href="index.html" class="btn-outline" data-i18n="final_back">← Tornar a l'inici</a>
   </div>
 </section>
 
@@ -701,10 +707,36 @@ footer {
     <a href="https://instagram.com/manamarbcn" target="_blank">@manamarbcn</a>
     <a href="index.html">Contributors</a>
   </div>
-  <div class="footer-copy">© 2027 ManaMar · Cartografía submarina al alcance de todos.</div>
+  <div class="footer-copy"><span data-i18n="footer_copy">© 2027 ManaMar · Cartografia submarina a l'abast de tothom.</span></div>
 </footer>
 
 <script>
+
+
+let currentLang = localStorage.getItem('manamar_lang') || 'ca';
+
+async function loadLang(lang) {
+  try {
+    const res = await fetch(`assets/i18n/${lang}.json`);
+    const t = await res.json();
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+  } catch(e) { console.warn('Could not load lang:', lang); }
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('manamar_lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  loadLang(lang);
+}
+
+setLang(currentLang);
 
 // ── TIMELINE: position today marker based on real date ──
 (function() {

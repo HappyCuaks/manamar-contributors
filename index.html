@@ -1,298 +1,121 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manamar Contributors</title>
 <style>
-@font-face {
-  font-family: 'Trap';
-  font-weight: 500;
-  src: url('assets/fonts/Trap-Medium.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Trap';
-  font-weight: 700;
-  src: url('assets/fonts/Trap-Bold.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Nougatine';
-  font-weight: 400;
-  src: url('assets/fonts/Nougatine_Regular_400.ttf') format('truetype');
-}
-
+@font-face { font-family:'Trap'; font-weight:500; src:url('assets/fonts/Trap-Medium.ttf') format('truetype'); }
+@font-face { font-family:'Trap'; font-weight:700; src:url('assets/fonts/Trap-Bold.ttf') format('truetype'); }
+@font-face { font-family:'Nougatine'; font-weight:400; src:url('assets/fonts/Nougatine_Regular_400.ttf') format('truetype'); }
 :root {
-  --cream:    #ECE4DD;
-  --red:      #D73954;
-  --red-dark: #b02d44;
-  --indigo:   #3F3B78;
-  --purple:   #845889;
-  --yellow:   #D09F47;
-  --dark:     #242B33;
-  --white:    #F5F5F5;
+  --cream:#ECE4DD; --red:#D73954; --red-dark:#b02d44;
+  --indigo:#3F3B78; --purple:#845889; --yellow:#D09F47;
+  --dark:#242B33; --white:#F5F5F5;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Trap', sans-serif;
-  font-weight: 500;
-  background: var(--cream);
-  color: var(--dark);
-  overflow-x: hidden;
-}
-
-.grid-cream {
-  background-color: var(--cream);
-  position: relative;
-}
-.grid-cream::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: url('assets/img/grid-pattern.svg');
-  background-repeat: repeat;
-  background-size: 128px 128px;
-  opacity: 0.25;
-  pointer-events: none; z-index: 0;
-}
-.grid-cream > * { position: relative; z-index: 1; }
-
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: var(--cream);
-  border-bottom: 1px solid rgba(216,59,85,0.2);
-  padding: 0 48px; height: 60px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo {
-  font-family: 'Nougatine', sans-serif;
-  font-size: 22px; color: var(--indigo);
-  text-decoration: none; letter-spacing: 0.5px;
-}
-.nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a {
-  font-size: 13px; font-weight: 500; color: var(--dark);
-  text-decoration: none; opacity: 0.6; transition: opacity 0.2s;
-}
-.nav-links a:hover { opacity: 1; }
-.nav-cta {
-  background: var(--red); color: white;
-  font-family: 'Trap', sans-serif;
-  font-size: 13px; font-weight: 700;
-  padding: 9px 22px; border-radius: 3px;
-  text-decoration: none; letter-spacing: 0.3px;
-  transition: background 0.2s;
-}
-.nav-cta:hover { background: var(--red-dark); }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  padding: 120px 48px 80px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 32px;
-}
-.hero-badge {
-  background: var(--red); color: white;
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase;
-  padding: 5px 12px; border-radius: 2px;
-}
-.hero-year { font-size: 12px; color: rgba(36,43,51,0.45); letter-spacing: 1px; }
-.hero h1 {
-  font-size: clamp(64px, 10vw, 128px);
-  line-height: 0.9; letter-spacing: -2px;
-  color: var(--indigo); margin-bottom: 0; max-width: 900px;
-}
-.hero-layout {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; margin-top: 56px; align-items: start;
-}
-.hero-desc {
-  font-size: 18px; line-height: 1.7;
-  color: rgba(36,43,51,0.72); max-width: 480px;
-}
-.hero-desc strong { color: var(--indigo); font-weight: 700; }
-.hero-actions { display: flex; flex-direction: column; gap: 16px; padding-top: 4px; }
-.btn-primary {
-  display: inline-block;
-  background: var(--red); color: white;
-  font-family: 'Trap', sans-serif;
-  font-size: 14px; font-weight: 700;
-  padding: 16px 32px; border-radius: 3px;
-  text-decoration: none; letter-spacing: 0.3px; text-align: center;
-  transition: background 0.2s, transform 0.15s;
-}
-.btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
-.btn-outline {
-  display: inline-block;
-  border: 1.5px solid var(--indigo); color: var(--indigo);
-  font-family: 'Trap', sans-serif;
-  font-size: 14px; font-weight: 700;
-  padding: 15px 32px; border-radius: 3px;
-  text-decoration: none; letter-spacing: 0.3px; text-align: center;
-  transition: background 0.2s, color 0.2s;
-}
-.btn-outline:hover { background: var(--indigo); color: white; }
-.btn-note { font-size: 12px; color: rgba(36,43,51,0.4); text-align: center; }
-
-/* DIVIDER */
-.divider { height: 2px; background: linear-gradient(90deg, var(--red), var(--indigo)); }
-
-/* SECCIONES */
-.section-tag {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--red); margin-bottom: 20px;
-  display: flex; align-items: center; gap: 10px;
-}
-.section-tag::after { content: ''; width: 32px; height: 1px; background: var(--red); }
-h2 {
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 0.95; letter-spacing: -1px;
-  color: var(--indigo); margin-bottom: 24px;
-}
-
-/* QUÉ ES */
-.what-section { padding: 96px 48px; }
-.what-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; margin-top: 16px; align-items: start;
-}
-.what-intro { font-size: 17px; line-height: 1.75; color: rgba(36,43,51,0.72); }
-.what-intro p + p { margin-top: 16px; }
-.what-intro strong { color: var(--dark); font-weight: 700; }
-.definition-box { background: var(--indigo); border-radius: 4px; padding: 36px 32px; }
-.definition-box p { font-size: 16px; line-height: 1.75; color: rgba(245,245,245,0.75); }
-.definition-box p + p { margin-top: 16px; }
-.definition-box strong { color: white; font-weight: 700; }
-.definition-label {
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--red); font-weight: 700; margin-bottom: 16px;
-}
-
-/* PERFILES */
-.profiles-section { padding: 96px 48px; }
-.profiles-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr);
-  margin-top: 48px; border: 1.5px solid var(--indigo);
-}
-.profile-card {
-  padding: 28px 20px;
-  border-right: 1px solid rgba(63,59,120,0.2);
-  cursor: default; transition: background 0.25s;
-  background: var(--cream);
-}
-.profile-card:last-child { border-right: none; }
-.profile-card:hover { background: var(--red); }
-.profile-card:hover .profile-icon { color: rgba(255,255,255,0.9); }
-.profile-card:hover .profile-title { color: white; }
-.profile-card:hover .profile-desc { color: rgba(255,255,255,0.7); }
-.profile-icon { font-size: 24px; margin-bottom: 12px; color: var(--indigo); transition: color 0.25s; }
-.profile-title {
-  font-size: 12px; font-weight: 700; color: var(--indigo);
-  margin-bottom: 8px; transition: color 0.25s; line-height: 1.3;
-}
-.profile-desc { font-size: 11px; line-height: 1.65; color: rgba(36,43,51,0.55); transition: color 0.25s; }
-
-/* CTA BAND */
-.cta-band { padding: 80px 48px; }
-.cta-band-inner {
-  background: var(--red); border-radius: 4px;
-  padding: 64px 56px;
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 48px; align-items: center;
-}
-.cta-band h3 {
-  font-size: clamp(32px, 4vw, 52px); line-height: 1;
-  color: white; letter-spacing: -0.5px;
-}
-.cta-band p {
-  font-size: 15px; line-height: 1.65;
-  color: rgba(255,255,255,0.72); margin-top: 12px; max-width: 480px;
-}
-.cta-band-actions { display: flex; flex-direction: column; gap: 12px; min-width: 220px; }
-.btn-white {
-  display: inline-block; background: white; color: var(--red);
-  font-family: 'Trap', sans-serif; font-size: 14px; font-weight: 700;
-  padding: 16px 32px; border-radius: 3px; text-decoration: none;
-  text-align: center; letter-spacing: 0.3px;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.btn-white:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
-.btn-white-outline {
-  display: inline-block;
-  border: 1.5px solid rgba(255,255,255,0.5); color: white;
-  font-family: 'Trap', sans-serif; font-size: 14px; font-weight: 700;
-  padding: 15px 32px; border-radius: 3px; text-decoration: none;
-  text-align: center; letter-spacing: 0.3px;
-  transition: border-color 0.2s, background 0.2s;
-}
-.btn-white-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
-
-/* FOOTER */
-footer {
-  background: var(--dark); padding: 28px 48px;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 16px;
-}
-.footer-logo { font-family: 'Nougatine', sans-serif; font-size: 18px; color: var(--cream); letter-spacing: 0.5px; }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 13px; color: rgba(236,228,221,0.45); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--cream); }
-.footer-copy { font-size: 12px; color: rgba(236,228,221,0.3); }
-
-/* FADE */
-.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  nav { padding: 0 20px; }
-  .hero { padding: 100px 20px 60px; }
-  .hero-layout { grid-template-columns: 1fr; gap: 40px; }
-  .what-section, .profiles-section, .cta-band { padding-left: 20px; padding-right: 20px; }
-  .what-grid { grid-template-columns: 1fr; gap: 40px; }
-  .profiles-grid { grid-template-columns: 1fr 1fr; }
-  .profile-card { border-bottom: 1px solid rgba(63,59,120,0.2); }
-  .cta-band-inner { grid-template-columns: 1fr; }
-  footer { padding: 24px 20px; }
-}
-@media (max-width: 600px) {
-  .profiles-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Trap',sans-serif;font-weight:500;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+.grid-cream{background-color:var(--cream);position:relative;}
+.grid-cream::before{content:'';position:absolute;inset:0;background-image:url('assets/img/grid-pattern.svg');background-repeat:repeat;background-size:128px 128px;opacity:0.25;pointer-events:none;z-index:0;}
+.grid-cream>*{position:relative;z-index:1;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--cream);border-bottom:1px solid rgba(216,59,85,0.2);padding:0 48px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Nougatine',sans-serif;font-size:22px;color:var(--indigo);text-decoration:none;letter-spacing:0.5px;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.lang-switcher{display:flex;gap:2px;align-items:center;background:rgba(63,59,120,0.08);border-radius:3px;padding:2px;}
+.lang-btn{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--indigo);background:none;border:none;padding:4px 8px;border-radius:2px;cursor:pointer;opacity:0.45;transition:opacity 0.2s,background 0.2s;font-family:'Trap',sans-serif;}
+.lang-btn:hover{opacity:0.8;}
+.lang-btn.active{background:var(--indigo);color:white;opacity:1;}
+.nav-cta{background:var(--red);color:white;font-family:'Trap',sans-serif;font-size:13px;font-weight:700;padding:9px 22px;border-radius:3px;text-decoration:none;letter-spacing:0.3px;transition:background 0.2s;}
+.nav-cta:hover{background:var(--red-dark);}
+.hero{min-height:100vh;padding:120px 48px 80px;display:flex;flex-direction:column;justify-content:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;}
+.hero-badge{background:var(--red);color:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:2px;}
+.hero-year{font-size:12px;color:rgba(36,43,51,0.45);letter-spacing:1px;}
+.hero h1{font-size:clamp(64px,10vw,128px);line-height:0.9;letter-spacing:-2px;color:var(--indigo);margin-bottom:0;max-width:900px;}
+.hero-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:56px;align-items:start;}
+.hero-desc{font-size:18px;line-height:1.7;color:rgba(36,43,51,0.72);max-width:480px;}
+.hero-desc strong{color:var(--indigo);font-weight:700;}
+.hero-desc-sub{font-size:15px;line-height:1.7;color:rgba(36,43,51,0.5);max-width:480px;margin-top:20px;}
+.hero-actions{display:flex;flex-direction:column;gap:16px;padding-top:4px;}
+.btn-primary{display:inline-block;background:var(--red);color:white;font-family:'Trap',sans-serif;font-size:14px;font-weight:700;padding:16px 32px;border-radius:3px;text-decoration:none;letter-spacing:0.3px;text-align:center;transition:background 0.2s,transform 0.15s;}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-1px);}
+.btn-outline{display:inline-block;border:1.5px solid var(--indigo);color:var(--indigo);font-family:'Trap',sans-serif;font-size:14px;font-weight:700;padding:15px 32px;border-radius:3px;text-decoration:none;letter-spacing:0.3px;text-align:center;transition:background 0.2s,color 0.2s;}
+.btn-outline:hover{background:var(--indigo);color:white;}
+.btn-note{font-size:12px;color:rgba(36,43,51,0.4);text-align:center;}
+.divider{height:2px;background:linear-gradient(90deg,var(--red),var(--indigo));}
+.section-tag{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.section-tag::after{content:'';width:32px;height:1px;background:var(--red);}
+h2{font-size:clamp(40px,5vw,64px);line-height:0.95;letter-spacing:-1px;color:var(--indigo);margin-bottom:24px;}
+.what-section{padding:96px 48px;}
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:16px;align-items:start;}
+.what-intro{font-size:17px;line-height:1.75;color:rgba(36,43,51,0.72);}
+.what-intro p+p{margin-top:16px;}
+.what-intro strong{color:var(--dark);font-weight:700;}
+.definition-box{background:var(--indigo);border-radius:4px;padding:36px 32px;}
+.definition-box p{font-size:16px;line-height:1.75;color:rgba(245,245,245,0.75);}
+.definition-box p+p{margin-top:16px;}
+.definition-box strong{color:white;font-weight:700;}
+.definition-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:16px;}
+.profiles-section{padding:96px 48px;}
+.profiles-grid{display:grid;grid-template-columns:repeat(5,1fr);margin-top:48px;border:1.5px solid var(--indigo);}
+.profile-card{padding:28px 20px;border-right:1px solid rgba(63,59,120,0.2);cursor:default;transition:background 0.25s;background:var(--cream);}
+.profile-card:last-child{border-right:none;}
+.profile-card:hover{background:var(--red);}
+.profile-card:hover .profile-icon,.profile-card:hover .profile-title,.profile-card:hover .profile-desc{color:white;}
+.profile-card:hover .profile-desc{color:rgba(255,255,255,0.7);}
+.profile-icon{font-size:24px;margin-bottom:12px;color:var(--indigo);transition:color 0.25s;}
+.profile-title{font-size:12px;font-weight:700;color:var(--indigo);margin-bottom:8px;transition:color 0.25s;line-height:1.3;}
+.profile-desc{font-size:11px;line-height:1.65;color:rgba(36,43,51,0.55);transition:color 0.25s;}
+.cta-band{padding:80px 48px;}
+.cta-band-inner{background:var(--red);border-radius:4px;padding:64px 56px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
+.cta-band h3{font-size:clamp(32px,4vw,52px);line-height:1;color:white;letter-spacing:-0.5px;}
+.cta-band p{font-size:15px;line-height:1.65;color:rgba(255,255,255,0.72);margin-top:12px;max-width:480px;}
+.cta-band-actions{display:flex;flex-direction:column;gap:12px;min-width:220px;}
+.btn-white{display:inline-block;background:white;color:var(--red);font-family:'Trap',sans-serif;font-size:14px;font-weight:700;padding:16px 32px;border-radius:3px;text-decoration:none;text-align:center;letter-spacing:0.3px;transition:transform 0.15s,box-shadow 0.15s;}
+.btn-white:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,0.15);}
+.btn-white-outline{display:inline-block;border:1.5px solid rgba(255,255,255,0.5);color:white;font-family:'Trap',sans-serif;font-size:14px;font-weight:700;padding:15px 32px;border-radius:3px;text-decoration:none;text-align:center;letter-spacing:0.3px;transition:border-color 0.2s,background 0.2s;}
+.btn-white-outline:hover{border-color:white;background:rgba(255,255,255,0.1);}
+footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-family:'Nougatine',sans-serif;font-size:18px;color:var(--cream);letter-spacing:0.5px;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-size:13px;color:rgba(236,228,221,0.45);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--cream);}
+.footer-copy{font-size:12px;color:rgba(236,228,221,0.3);}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){nav{padding:0 20px;}.hero{padding:100px 20px 60px;}.hero-layout{grid-template-columns:1fr;gap:40px;}.what-section,.profiles-section,.cta-band{padding-left:20px;padding-right:20px;}.what-grid{grid-template-columns:1fr;gap:40px;}.profiles-grid{grid-template-columns:1fr 1fr;}.profile-card{border-bottom:1px solid rgba(63,59,120,0.2);}.cta-band-inner{grid-template-columns:1fr;}footer{padding:24px 20px;}}
+@media(max-width:600px){.profiles-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
 </style>
 </head>
 <body class="grid-cream">
 
 <nav>
   <a class="nav-logo" href="index.html">ManaMar</a>
-  <div class="nav-links">
-    <a href="como-funciona.html">Cómo funciona</a>
-    <a href="https://mana-mar.com" target="_blank">Web principal</a>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="setLang('ca')">CA</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="nav-cta" data-i18n="nav_cta">Vull contribuir</a>
   </div>
-  <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="nav-cta">Quiero contribuir</a>
 </nav>
 
 <section class="hero">
   <div class="hero-eyebrow">
-    <span class="hero-badge">Programa Oficial</span>
-    <span class="hero-year">Manamar · 2026</span>
+    <span class="hero-badge" data-i18n="hero_badge">Programa Oficial</span>
+    <span class="hero-year" data-i18n="hero_year">Manamar · 2026</span>
   </div>
   <h1>ManaMar<br>Contributors</h1>
   <div class="hero-layout">
-    <p class="hero-desc">
-      ¿Conoces bien tu zona? Queremos que expertos como tú construyan el primer mapa submarino colaborativo del mundo. Empezando por la costa catalana.<br></br>
-      Cada punto que recibamos será contrastado con una muestra representativa del total de envíos, asegurando el rigor y la calidad de cada contribución en el mapa.
-    </p>
+    <div>
+      <p class="hero-desc" data-i18n="hero_desc_1">Coneixes bé la teva zona? Volem que experts com tu construeixin el primer mapa submarí col·laboratiu del món. Començant per la costa catalana.</p>
+      <p class="hero-desc-sub" data-i18n="hero_desc_2">Cada punt que rebem serà contrastat amb una mostra representativa del total d'enviaments, assegurant el rigor i la qualitat de cada contribució al mapa.</p>
+    </div>
     <div class="hero-actions">
-      <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-primary">Quiero ser Contributor →</a>
-      <a href="como-funciona.html" class="btn-outline">Ver cómo funciona</a>
-      <p class="btn-note">Las inscripciones abren en junio 2026.<br>Regístrate ahora y te avisamos.</p>
+      <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-primary" data-i18n="hero_cta">Vull ser Contributor →</a>
+      <a href="como-funciona.html" class="btn-outline" data-i18n="hero_how">Veure com funciona</a>
+      <p class="btn-note" data-i18n="hero_note">Les inscripcions obren el juny 2026.<br>Registra't ara i t'avisem.</p>
     </div>
   </div>
 </section>
@@ -300,18 +123,18 @@ footer {
 <div class="divider"></div>
 
 <section class="what-section">
-  <div class="section-tag fade-up">Qué es</div>
-  <h2 class="fade-up">¿Qué es un<br>Contributor?</h2>
+  <div class="section-tag fade-up" data-i18n="what_tag">Què és</div>
+  <h2 class="fade-up" data-i18n="what_h2">Què és un<br>Contributor?</h2>
   <div class="what-grid">
     <div class="what-intro fade-up">
-      <p>Un Manamar Contributor es alguien con <strong>conocimiento real del relieve y las zonas de interés</strong> de su costa — y que quiere que ese conocimiento forme parte del mapa.</p>
-      <p>No es crowdsourcing masivo. Es una capa de datos construida por personas que conocen su zona como nadie: pescadores, buceadores, fotógrafos, biólogos, guías.</p>
-      <p>Cada punto que aportes llevará tu nombre. Cada zona que conoces tendrá un lugar en el mapa.</p>
+      <p data-i18n="what_p1">Un Manamar Contributor és algú amb <strong>coneixement real del relleu i les zones d'interès</strong> de la seva costa — i que vol que aquest coneixement formi part del mapa.</p>
+      <p data-i18n="what_p2">No és crowdsourcing massiu. És una capa de dades construïda per persones que coneixen la seva zona com ningú: pescadors, bussejadors, fotògrafs, biòlegs, guies.</p>
+      <p data-i18n="what_p3">Cada punt que aportes portarà el teu nom. Cada zona que coneixes tindrà un lloc al mapa.</p>
     </div>
     <div class="definition-box fade-up">
-      <div class="definition-label">La diferencia</div>
-      <p>El conocimiento local no se descarga. Se construye con años en el agua. Eso es lo que buscamos.</p>
-      <p>Por eso existe el programa Contributors. Para que el mapa de 2027 sea <strong>fiable desde el primer día</strong>.</p>
+      <div class="definition-label" data-i18n="what_diff_label">La diferència</div>
+      <p data-i18n="what_diff_1">El coneixement local no es descarrega. Es construeix amb anys a l'aigua. Això és el que busquem.</p>
+      <p data-i18n="what_diff_2">Per això existeix el programa Contributors. Perquè el mapa del 2027 sigui <strong>fiable des del primer dia</strong>.</p>
     </div>
   </div>
 </section>
@@ -319,33 +142,33 @@ footer {
 <div class="divider"></div>
 
 <section class="profiles-section">
-  <div class="section-tag fade-up">Perfiles</div>
-  <h2 class="fade-up">¿Quién puede<br>contribuir?</h2>
+  <div class="section-tag fade-up" data-i18n="profiles_tag">Perfils</div>
+  <h2 class="fade-up" data-i18n="profiles_h2">Qui pot<br>contribuir?</h2>
   <div class="profiles-grid fade-up">
     <div class="profile-card">
       <div class="profile-icon">🤿</div>
-      <div class="profile-title">Buceadores e instructores</div>
-      <div class="profile-desc">Con años de inmersiones en la misma zona y conocimiento profundo del fondo.</div>
+      <div class="profile-title" data-i18n="profile_1_title">Bussejadors i instructors</div>
+      <div class="profile-desc" data-i18n="profile_1_desc">Amb anys d'immersions a la mateixa zona i coneixement profund del fons.</div>
     </div>
     <div class="profile-card">
       <div class="profile-icon">⚓</div>
-      <div class="profile-title">Pescadores y patrones</div>
-      <div class="profile-desc">Conocedores de fondos, corrientes y puntos que ningún mapa oficial recoge.</div>
+      <div class="profile-title" data-i18n="profile_2_title">Pescadors i patrons</div>
+      <div class="profile-desc" data-i18n="profile_2_desc">Coneixedors de fons, corrents i punts que cap mapa oficial recull.</div>
     </div>
     <div class="profile-card">
       <div class="profile-icon">🔬</div>
-      <div class="profile-title">Biólogos marinos y Científicos</div>
-      <div class="profile-desc">Precisión científica y datos verificados sobre ecosistemas y biodiversidad.</div>
+      <div class="profile-title" data-i18n="profile_3_title">Biòlegs marins i Científics</div>
+      <div class="profile-desc" data-i18n="profile_3_desc">Precisió científica i dades verificades sobre ecosistemes i biodiversitat.</div>
     </div>
     <div class="profile-card">
       <div class="profile-icon">🧭</div>
-      <div class="profile-title">Guías náuticos</div>
-      <div class="profile-desc">Rutas, zonas seguras y puntos de interés practicados cada temporada.</div>
+      <div class="profile-title" data-i18n="profile_4_title">Guies nàutics</div>
+      <div class="profile-desc" data-i18n="profile_4_desc">Rutes, zones segures i punts d'interès practicats cada temporada.</div>
     </div>
     <div class="profile-card">
       <div class="profile-icon">📷</div>
-      <div class="profile-title">Fotógrafos subacuáticos</div>
-      <div class="profile-desc">Documentación visual de calidad que enriquece cada punto del mapa.</div>
+      <div class="profile-title" data-i18n="profile_5_title">Fotògrafs subaquàtics</div>
+      <div class="profile-desc" data-i18n="profile_5_desc">Documentació visual de qualitat que enriqueix cada punt del mapa.</div>
     </div>
   </div>
 </section>
@@ -353,12 +176,12 @@ footer {
 <section class="cta-band">
   <div class="cta-band-inner fade-up">
     <div>
-      <h3>¿Listo para<br>contribuir?</h3>
-      <p>Las inscripciones abren en junio 2026. Déjanos tus datos ahora y serás de los primeros en recibir el aviso para enviarnos tus puntos.</p>
+      <h3 data-i18n="cta_h3">Llest per<br>contribuir?</h3>
+      <p data-i18n="cta_desc">Les inscripcions obren el juny 2026. Deixa'ns les teves dades ara i seràs dels primers a rebre l'avís per enviar-nos els teus punts.</p>
     </div>
     <div class="cta-band-actions">
-      <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-white">Registrarme ahora</a>
-      <a href="como-funciona.html" class="btn-white-outline">Ver cómo funciona</a>
+      <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-white" data-i18n="cta_register">Registrar-me ara</a>
+      <a href="como-funciona.html" class="btn-white-outline" data-i18n="cta_how">Veure com funciona</a>
     </div>
   </div>
 </section>
@@ -367,16 +190,44 @@ footer {
   <div class="footer-logo">ManaMar</div>
   <div class="footer-links">
     <a href="https://instagram.com/manamarbcn" target="_blank">@manamarbcn</a>
-    <a href="como-funciona.html">Cómo funciona</a>
+    <a href="como-funciona.html" data-i18n="nav_how">Com funciona</a>
   </div>
-  <div class="footer-copy">© 2026 ManaMar · Cartografía submarina al alcance de todos.</div>
+  <div class="footer-copy"><span data-i18n="footer_copy">© 2026 ManaMar · Cartografia submarina a l'abast de tothom.</span></div>
 </footer>
 
 <script>
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+let currentLang = localStorage.getItem('manamar_lang') || 'ca';
+
+async function loadLang(lang) {
+  try {
+    const res = await fetch(`assets/i18n/${lang}.json`);
+    if (!res.ok) throw new Error('fetch failed');
+    const t = await res.json();
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+  } catch(e) { console.warn('Could not load lang:', lang, e); }
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('manamar_lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  loadLang(lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(currentLang);
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+});
 </script>
 </body>
 </html>
