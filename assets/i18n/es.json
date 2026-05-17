@@ -1,6 +1,6 @@
 {
   "nav_cta": "Quiero contribuir",
-  "nav_back": "← Volver",
+  "nav_back": "Volver",
   "nav_how": "Cómo funciona",
   "breadcrumb_contributors": "Contributors",
   "breadcrumb_how": "Cómo funciona",
@@ -9,7 +9,7 @@
   "hero_year": "Manamar · 2026",
   "hero_desc_1": "¿Conoces bien tu zona? Queremos que expertos como tú construyan el primer mapa submarino colaborativo del mundo. Empezando por la costa catalana.",
   "hero_desc_2": "Cada punto que recibamos será contrastado con una muestra representativa del total de envíos, asegurando el rigor y la calidad de cada contribución en el mapa.",
-  "hero_cta": "Quiero ser Contributor →",
+  "hero_cta": "Quiero ser Contributor",
   "hero_how": "Ver cómo funciona",
   "hero_note": "Las inscripciones abren en junio 2026.<br>Regístrate ahora y te avisamos.",
   "what_tag": "Qué es",
@@ -105,7 +105,7 @@
   "delivery_4_desc": "El sistema agrupa puntos duplicados a menos de 50m. Sin trabajo extra para ti.",
   "final_h2": "¿Todo claro?<br>Únete.",
   "final_desc": "El programa arranca en septiembre 2026. Regístrate ahora y te avisamos en cuanto abra la inscripción oficial.",
-  "final_cta": "Quiero ser contributor →",
-  "final_back": "← Volver al inicio",
+  "final_cta": "Quiero ser contributor",
+  "final_back": "Volver al inicio",
   "footer_copy": "© 2027 ManaMar · Cartografía submarina al alcance de todos."
 }
