@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo funciona — Manamar Contributors</title>
+<style>
+@font-face {
+  font-family: 'Trap';
+  font-weight: 500;
+  src: url('assets/fonts/Trap-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Trap';
+  font-weight: 700;
+  src: url('assets/fonts/Trap-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nougatine';
+  font-weight: 400;
+  src: url('assets/fonts/Nougatine_Regular_400.ttf') format('truetype');
+}
+
+:root {
+  --cream:    #ECE4DD;
+  --red:      #D73954;
+  --red-dark: #b02d44;
+  --indigo:   #3F3B78;
+  --purple:   #845889;
+  --yellow:   #D09F47;
+  --green:    #88AD4D;
+  --dark:     #242B33;
+  --white:    #F5F5F5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Trap', sans-serif;
+  font-weight: 500;
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+.grid-cream {
+  background-color: var(--cream);
+  background-image: url('assets/img/grid-pattern.svg');
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+.grid-dark {
+  background-image: url('assets/img/grid-pattern-dark.svg');
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--cream);
+  border-bottom: 1px solid rgba(216,59,85,0.2);
+  padding: 0 48px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Nougatine', sans-serif;
+  font-size: 22px; color: var(--indigo);
+  text-decoration: none; letter-spacing: 0.5px;
+}
+.nav-logo span { color: var(--red); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; color: var(--dark);
+  text-decoration: none; opacity: 0.6; transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; }
+.nav-links a.active { opacity: 1; color: var(--indigo); font-weight: 700; }
+.nav-cta {
+  background: var(--red); color: white;
+  font-family: 'Trap', sans-serif;
+  font-size: 13px; font-weight: 700;
+  padding: 9px 22px; border-radius: 3px;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--red-dark); }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  padding: 120px 48px 72px;
+}
+.breadcrumb {
+  font-size: 12px; color: rgba(36,43,51,0.4);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.breadcrumb a { color: var(--red); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.page-header h1 {
+  
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 0.9; letter-spacing: -2px;
+  color: var(--indigo);
+}
+.page-header h1 em { font-style: normal; }
+.page-header-sub {
+  font-size: 18px; line-height: 1.65;
+  color: rgba(36,43,51,0.65);
+  max-width: 520px; margin-top: 24px;
+}
+
+/* ── DIVIDER ── */
+.divider { height: 2px; background: linear-gradient(90deg, var(--red), var(--indigo)); }
+
+/* ── SECTIONS ── */
+section { padding: 80px 48px; }
+
+.section-tag {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--red); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-tag::after { content: ''; width: 32px; height: 1px; background: var(--red); }
+
+h2 {
+  
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 0.95; letter-spacing: -1px;
+  color: var(--indigo); margin-bottom: 8px;
+}
+h2 em { font-style: normal; }
+
+/* ── PROCESO ── */
+.steps { margin-top: 56px; }
+.step {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(63,59,120,0.12);
+  align-items: start;
+}
+.step:last-child { border-bottom: none; }
+.step-num {
+  font-family: 'Nougatine', sans-serif;
+  font-size: 52px; line-height: 1;
+  color: var(--red); opacity: 0.2;
+  transition: opacity 0.2s;
+  padding-top: 4px;
+}
+.step:hover .step-num { opacity: 1; }
+.step-title {
+  font-size: 20px; font-weight: 700;
+  color: var(--indigo); margin-bottom: 10px;
+}
+.step-desc {
+  font-size: 14px; line-height: 1.75;
+  color: rgba(36,43,51,0.68); max-width: 640px;
+}
+.step-tag {
+  display: inline-block; margin-top: 14px;
+  background: rgba(63,59,120,0.08); color: var(--indigo);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 2px;
+}
+
+/* ── BENEFICIOS ── */
+.benefits-section { background: var(--indigo); }
+.benefits-section .section-tag { color: rgba(255,255,255,0.5); }
+.benefits-section .section-tag::after { background: rgba(255,255,255,0.3); }
+.benefits-section h2 { color: white; }
+.benefits-section h2 em { color: var(--red); }
+.benefits-intro {
+  font-size: 16px; color: rgba(245,245,245,0.6);
+  max-width: 540px; line-height: 1.7; margin-top: 12px; margin-bottom: 48px;
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.benefit-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; padding: 28px 24px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.benefit-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(215,57,84,0.4);
+}
+.benefit-num {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  color: var(--red); margin-bottom: 14px;
+}
+.benefit-title { font-size: 15px; font-weight: 700; color: white; margin-bottom: 8px; }
+.benefit-desc { font-size: 13px; line-height: 1.65; color: rgba(245,245,245,0.55); }
+
+/* ── REQUISITOS ── */
+.req-section { background: var(--red); }
+.req-section .section-tag { color: rgba(255,255,255,0.6); }
+.req-section .section-tag::after { background: rgba(255,255,255,0.4); }
+.req-section h2 { color: white; }
+.req-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; margin-top: 48px; align-items: start;
+}
+.req-intro { font-size: 17px; color: rgba(255,255,255,0.78); line-height: 1.7; }
+.req-intro p + p { margin-top: 16px; }
+.req-list { display: flex; flex-direction: column; gap: 14px; }
+.req-item {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 4px; padding: 16px 20px;
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.req-check {
+  width: 20px; height: 20px; flex-shrink: 0;
+  background: white; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.req-check svg { width: 10px; height: 10px; }
+.req-text { font-size: 14px; font-weight: 700; color: white; line-height: 1.4; }
+.req-sub { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 3px; font-weight: 500; }
+
+/* ── ENTREGA ── */
+.delivery-section { background: var(--cream); }
+.csv-box {
+  margin-top: 48px; background: var(--dark);
+  border-radius: 4px; overflow: hidden;
+}
+.csv-header {
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: rgba(255,255,255,0.35); font-family: monospace;
+}
+.csv-dot { width: 10px; height: 10px; border-radius: 50%; }
+.csv-body {
+  padding: 24px 20px;
+  font-family: monospace; font-size: 13px;
+  line-height: 1.9; color: rgba(255,255,255,0.75);
+  overflow-x: auto;
+}
+.c-comment { color: var(--purple); }
+.c-key { color: var(--yellow); }
+.c-val { color: var(--green); }
+.c-pipe { color: rgba(255,255,255,0.25); }
+
+.delivery-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px; margin-top: 36px;
+}
+.delivery-card {
+  background: white;
+  border: 1px solid rgba(63,59,120,0.1);
+  border-radius: 4px; padding: 20px 18px;
+}
+.delivery-icon { font-size: 20px; margin-bottom: 10px; }
+.delivery-title { font-size: 13px; font-weight: 700; color: var(--indigo); margin-bottom: 6px; }
+.delivery-desc { font-size: 12px; line-height: 1.6; color: rgba(36,43,51,0.55); }
+
+/* ── CTA FINAL ── */
+.final-cta {
+  padding: 80px 48px;
+  text-align: center;
+  border-top: 2px solid var(--indigo);
+}
+.final-cta h2 { margin-bottom: 16px; }
+.final-cta p {
+  font-size: 16px; color: rgba(36,43,51,0.6);
+  max-width: 440px; margin: 0 auto 40px; line-height: 1.65;
+}
+.final-cta-actions {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--red); color: white;
+  font-family: 'Trap', sans-serif;
+  font-size: 14px; font-weight: 700;
+  padding: 16px 32px; border-radius: 3px;
+  text-decoration: none; letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+.btn-outline {
+  display: inline-block;
+  border: 1.5px solid var(--indigo); color: var(--indigo);
+  font-family: 'Trap', sans-serif;
+  font-size: 14px; font-weight: 700;
+  padding: 15px 32px; border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline:hover { background: var(--indigo); color: white; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark); padding: 28px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-family: 'Nougatine', sans-serif; font-size: 18px; color: var(--cream); }
+.footer-logo span { color: var(--red); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 13px; color: rgba(236,228,221,0.45); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-copy { font-size: 12px; color: rgba(236,228,221,0.3); }
+
+/* ── FADE ── */
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .page-header, section, .final-cta { padding-left: 20px; padding-right: 20px; }
+  .req-layout { grid-template-columns: 1fr; gap: 40px; }
+  footer { padding: 24px 20px; }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .step { grid-template-columns: 48px 1fr; gap: 16px; }
+  .step-num { font-size: 36px; }
+}
+</style>
+</head>
+<body class="grid-cream">
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">Mana<span>Mar</span></a>
+  <div class="nav-links">
+    <a href="como-funciona.html" class="active">Cómo funciona</a>
+    <a href="https://mana-mar.com" target="_blank">Web principal</a>
+  </div>
+  <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="nav-cta">Quiero contribuir</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="breadcrumb">
+    <a href="index.html">Contributors</a>
+    <span>›</span>
+    <span>Cómo funciona</span>
+  </div>
+  <h1>Cómo<br><em>funciona</em></h1>
+  <p class="page-header-sub">El proceso completo — desde que te registras hasta que tu nombre aparece en el mapa de 2026.</p>
+</header>
+
+<div class="divider"></div>
+
+<!-- PROCESO -->
+<section class="grid-cream">
+  <div class="section-tag fade-up">El proceso</div>
+  <h2 class="fade-up">Paso a <em>paso</em></h2>
+  <div class="steps">
+    <div class="step fade-up">
+      <div class="step-num">01</div>
+      <div>
+        <div class="step-title">Te registras como contributor</div>
+        <div class="step-desc">Rellenas el formulario con tu nombre, email, zona geográfica y una foto de tu certificación de buceo. Divemaster o superior — cualquier escuela vale: PADI, SSI, CMAS. No necesitas que nadie te verifique en persona. El formulario es la puerta de entrada.</div>
+        <span class="step-tag">Google Forms · 5 minutos</span>
+      </div>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">02</div>
+      <div>
+        <div class="step-title">Te avisamos cuando arranca el programa</div>
+        <div class="step-desc">El programa Contributors arranca en septiembre de 2025, al final de la temporada alta de buceo. En cuanto abra la ventana de recogida de datos, recibirás un email con las instrucciones y acceso al modo contributor en la app.</div>
+        <span class="step-tag">Ventana de 2 semanas · Septiembre 2025</span>
+      </div>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">03</div>
+      <div>
+        <div class="step-title">Recoges y entregas tus puntos</div>
+        <div class="step-desc">Preparas un ZIP con tus puntos GPS en formato CSV y las fotos asociadas, siguiendo la plantilla oficial que te damos. Lo subes a través del formulario de entrega. Puedes hacer varias entregas durante las dos semanas — no tienes que hacerlo todo de una vez.</div>
+        <span class="step-tag">ZIP con CSV + fotos · Plantilla incluida</span>
+      </div>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">04</div>
+      <div>
+        <div class="step-title">El sistema filtra los duplicados</div>
+        <div class="step-desc">Cuando varios contributors aportan el mismo punto, el sistema los agrupa automáticamente si están a menos de 50 metros entre sí. El punto con más datos — foto, descripción, profundidad — se queda como principal. Tú no tienes que preocuparte de nada.</div>
+        <span class="step-tag">Radio de deduplicación automática: 50m</span>
+      </div>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">05</div>
+      <div>
+        <div class="step-title">Tu nombre aparece en el mapa</div>
+        <div class="step-desc">El equipo Manamar revisa los puntos que el sistema no ha podido agrupar. En primavera de 2026, el mapa colaborativo se publica con cada punto vinculado al nombre del contributor que lo aportó. Tu conocimiento, en el mapa para siempre.</div>
+        <span class="step-tag">Mapa público · Primavera 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BENEFICIOS -->
+<section class="benefits-section grid-dark">
+  <div class="section-tag fade-up">Lo que recibes</div>
+  <h2 class="fade-up">Tu contribución<br>tiene <em>valor</em></h2>
+  <p class="benefits-intro fade-up">Ser contributor no es solo aportar datos. Es formar parte del equipo que construye el primer mapa submarino colaborativo de calidad profesional.</p>
+  <div class="benefits-grid">
+    <div class="benefit-card fade-up">
+      <div class="benefit-num">01</div>
+      <div class="benefit-title">Acceso premium gratuito</div>
+      <div class="benefit-desc">Acceso completo a la app ManaMar durante un año, con todas las funcionalidades desbloqueadas.</div>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-num">02</div>
+      <div class="benefit-title">Badge contributor oficial</div>
+      <div class="benefit-desc">Perfil público verificado con etiqueta "Contributor Oficial Manamar". Visibilidad en la comunidad.</div>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-num">03</div>
+      <div class="benefit-title">Tu nombre en el mapa</div>
+      <div class="benefit-desc">Cada punto que aportes aparece vinculado a tu nombre o centro. Publicidad orgánica en cada consulta.</div>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-num">04</div>
+      <div class="benefit-title">Acceso anticipado</div>
+      <div class="benefit-desc">Ves el mapa colaborativo antes de su lanzamiento público. Lo construyes, lo ves primero.</div>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-num">05</div>
+      <div class="benefit-title">Créditos permanentes</div>
+      <div class="benefit-desc">Tu nombre en los créditos del mapa oficial de 2026. Un legado permanente en la cartografía marina.</div>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-num">06</div>
+      <div class="benefit-title">Programa de referidos</div>
+      <div class="benefit-desc">Comisión o descuento cuando recomiendas suscripciones a tu comunidad.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REQUISITOS -->
+<section class="req-section grid-dark">
+  <div class="section-tag fade-up">Requisitos</div>
+  <h2 class="fade-up" style="color:white;">¿Quién puede<br>aplicar?</h2>
+  <div class="req-layout">
+    <div class="fade-up">
+      <p class="req-intro">No necesitas ser del equipo ni tener miles de seguidores. Solo necesitas conocimiento real del fondo marino y las ganas de compartirlo.</p>
+      <p class="req-intro" style="margin-top:16px; font-size:14px; opacity:0.7;">La certificación actúa como filtro de calidad — no para excluir, sino para garantizar que el mapa es fiable. Un punto de alguien con 10 años buceando en la zona vale más que 20 puntos aleatorios.</p>
+    </div>
+    <div class="req-list fade-up">
+      <div class="req-item">
+        <div class="req-check">
+          <svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#D73954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="req-text">Divemaster o superior</div>
+          <div class="req-sub">PADI, SSI, CMAS o equivalente. Foto del título al registrarte.</div>
+        </div>
+      </div>
+      <div class="req-item">
+        <div class="req-check">
+          <svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#D73954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="req-text">Mínimo 5 puntos GPS</div>
+          <div class="req-sub">Con coordenadas, profundidad y al menos una foto por punto.</div>
+        </div>
+      </div>
+      <div class="req-item">
+        <div class="req-check">
+          <svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#D73954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="req-text">Aceptar las condiciones de uso</div>
+          <div class="req-sub">Los datos se ceden a Manamar para el mapa colaborativo.</div>
+        </div>
+      </div>
+      <div class="req-item">
+        <div class="req-check">
+          <svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#D73954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="req-text">Entregar en la ventana oficial</div>
+          <div class="req-sub">2 semanas en septiembre 2025. Múltiples entregas permitidas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ENTREGA -->
+<section class="delivery-section grid-cream">
+  <div class="section-tag fade-up">Formato de entrega</div>
+  <h2 class="fade-up">Así nos envías<br>tus <em>puntos</em></h2>
+  <p class="fade-up" style="font-size:16px; color:rgba(36,43,51,0.62); max-width:520px; line-height:1.7; margin-top:12px;">Un ZIP estructurado con un CSV de puntos y sus fotos. Te damos la plantilla — solo tienes que rellenarla.</p>
+  <div class="csv-box fade-up">
+    <div class="csv-header">
+      <div class="csv-dot" style="background:#D73954;"></div>
+      <div class="csv-dot" style="background:#D09F47;"></div>
+      <div class="csv-dot" style="background:#88AD4D;"></div>
+      <span style="margin-left:8px;">puntos_tunombre_sep25 / puntos.csv</span>
+    </div>
+    <div class="csv-body">
+<span class="c-comment"># Estructura del ZIP</span><br>
+<span class="c-key">puntos_tunombre_sep25/</span><br>
+<span class="c-pipe">├── </span><span class="c-val">puntos.csv</span>  <span class="c-comment">← coordenadas + descripción</span><br>
+<span class="c-pipe">├── </span><span class="c-val">foto_001.jpg</span><br>
+<span class="c-pipe">├── </span><span class="c-val">foto_002.jpg</span><br>
+<span class="c-pipe">└── </span><span class="c-val">...</span><br><br>
+<span class="c-comment"># Columnas del CSV</span><br>
+<span class="c-key">id</span> <span class="c-pipe">|</span> <span class="c-key">nombre_punto</span> <span class="c-pipe">|</span> <span class="c-key">latitud</span> <span class="c-pipe">|</span> <span class="c-key">longitud</span> <span class="c-pipe">|</span> <span class="c-key">profundidad_m</span> <span class="c-pipe">|</span> <span class="c-key">tipo</span> <span class="c-pipe">|</span> <span class="c-key">descripcion</span> <span class="c-pipe">|</span> <span class="c-key">foto</span><br>
+<span class="c-val">001</span> <span class="c-pipe">|</span> <span class="c-val">Pared del Faralló</span> <span class="c-pipe">|</span> <span class="c-val">41.8234</span> <span class="c-pipe">|</span> <span class="c-val">3.1892</span> <span class="c-pipe">|</span> <span class="c-val">18</span> <span class="c-pipe">|</span> <span class="c-val">pared</span> <span class="c-pipe">|</span> <span class="c-val">Gorgònia gran...</span> <span class="c-pipe">|</span> <span class="c-val">foto_001.jpg</span>
+    </div>
+  </div>
+  <div class="delivery-cards">
+    <div class="delivery-card fade-up">
+      <div class="delivery-icon">📄</div>
+      <div class="delivery-title">Plantilla CSV descargable</div>
+      <div class="delivery-desc">Disponible en el formulario de entrega. Ábrela en Excel, Numbers o Google Sheets.</div>
+    </div>
+    <div class="delivery-card fade-up">
+      <div class="delivery-icon">🗂</div>
+      <div class="delivery-title">ZIP con fotos incluidas</div>
+      <div class="delivery-desc">Una foto por punto como mínimo. JPG o PNG. Nombradas como foto_001.jpg, etc.</div>
+    </div>
+    <div class="delivery-card fade-up">
+      <div class="delivery-icon">🔁</div>
+      <div class="delivery-title">Múltiples entregas</div>
+      <div class="delivery-desc">Puedes enviar varios ZIPs durante las 2 semanas. No hay que hacerlo todo de una vez.</div>
+    </div>
+    <div class="delivery-card fade-up">
+      <div class="delivery-icon">🤖</div>
+      <div class="delivery-title">Deduplicación automática</div>
+      <div class="delivery-desc">El sistema agrupa puntos duplicados a menos de 50m. Sin trabajo extra para ti.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final-cta grid-cream">
+  <h2>¿Todo claro?<br><em>Únete.</em></h2>
+  <p>El programa arranca en septiembre 2025. Regístrate ahora y te avisamos en cuanto abra la inscripción oficial.</p>
+  <div class="final-cta-actions">
+    <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-primary">Quiero ser contributor →</a>
+    <a href="index.html" class="btn-outline">← Volver al inicio</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Mana<span>Mar</span></div>
+  <div class="footer-links">
+    <a href="https://mana-mar.com" target="_blank">mana-mar.com</a>
+    <a href="https://instagram.com/manamarbcn" target="_blank">@manamarbcn</a>
+    <a href="index.html">Contributors</a>
+  </div>
+  <div class="footer-copy">© 2026 ManaMar · Cartografía submarina al alcance de todos.</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
