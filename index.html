@@ -42,26 +42,27 @@ body {
   overflow-x: hidden;
 }
 
-/* ── GRID PATTERNS ── */
 .grid-cream {
   background-color: var(--cream);
+  position: relative;
+}
+.grid-cream::before {
+  content: '';
+  position: absolute; inset: 0;
   background-image: url('assets/img/grid-pattern.svg');
   background-repeat: repeat;
   background-size: 128px 128px;
+  opacity: 0.25;
+  pointer-events: none; z-index: 0;
 }
-.grid-dark {
-  background-image: url('assets/img/grid-pattern-dark.svg');
-  background-repeat: repeat;
-  background-size: 128px 128px;
-}
+.grid-cream > * { position: relative; z-index: 1; }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: var(--cream);
   border-bottom: 1px solid rgba(216,59,85,0.2);
-  padding: 0 48px;
-  height: 60px;
+  padding: 0 48px; height: 60px;
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo {
@@ -69,7 +70,6 @@ nav {
   font-size: 22px; color: var(--indigo);
   text-decoration: none; letter-spacing: 0.5px;
 }
-.nav-logo span { color: var(--red); }
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
   font-size: 13px; font-weight: 500; color: var(--dark);
@@ -86,17 +86,14 @@ nav {
 }
 .nav-cta:hover { background: var(--red-dark); }
 
-/* ── HERO ── */
+/* HERO */
 .hero {
   min-height: 100vh;
   padding: 120px 48px 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: flex; flex-direction: column; justify-content: center;
 }
 .hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 10px;
-  margin-bottom: 32px;
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 32px;
 }
 .hero-badge {
   background: var(--red); color: white;
@@ -104,115 +101,72 @@ nav {
   letter-spacing: 2px; text-transform: uppercase;
   padding: 5px 12px; border-radius: 2px;
 }
-.hero-year {
-  font-size: 12px; color: rgba(36,43,51,0.45); letter-spacing: 1px;
-}
+.hero-year { font-size: 12px; color: rgba(36,43,51,0.45); letter-spacing: 1px; }
 .hero h1 {
-  
   font-size: clamp(64px, 10vw, 128px);
-  line-height: 0.9;
-  letter-spacing: -2px;
-  color: var(--indigo);
-  margin-bottom: 0;
-  max-width: 900px;
+  line-height: 0.9; letter-spacing: -2px;
+  color: var(--indigo); margin-bottom: 0; max-width: 900px;
 }
-.hero h1 em { font-style: normal; }
-
 .hero-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  margin-top: 56px;
-  align-items: start;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; margin-top: 56px; align-items: start;
 }
 .hero-desc {
   font-size: 18px; line-height: 1.7;
-  color: rgba(36,43,51,0.72);
-  max-width: 480px;
+  color: rgba(36,43,51,0.72); max-width: 480px;
 }
 .hero-desc strong { color: var(--indigo); font-weight: 700; }
-.hero-actions {
-  display: flex; flex-direction: column;
-  gap: 16px; padding-top: 4px;
-}
+.hero-actions { display: flex; flex-direction: column; gap: 16px; padding-top: 4px; }
 .btn-primary {
   display: inline-block;
   background: var(--red); color: white;
   font-family: 'Trap', sans-serif;
   font-size: 14px; font-weight: 700;
   padding: 16px 32px; border-radius: 3px;
-  text-decoration: none; letter-spacing: 0.3px;
-  text-align: center;
+  text-decoration: none; letter-spacing: 0.3px; text-align: center;
   transition: background 0.2s, transform 0.15s;
 }
 .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
 .btn-outline {
   display: inline-block;
-  border: 1.5px solid var(--indigo);
-  color: var(--indigo);
+  border: 1.5px solid var(--indigo); color: var(--indigo);
   font-family: 'Trap', sans-serif;
   font-size: 14px; font-weight: 700;
   padding: 15px 32px; border-radius: 3px;
-  text-decoration: none; letter-spacing: 0.3px;
-  text-align: center;
+  text-decoration: none; letter-spacing: 0.3px; text-align: center;
   transition: background 0.2s, color 0.2s;
 }
 .btn-outline:hover { background: var(--indigo); color: white; }
-.btn-note {
-  font-size: 12px; color: rgba(36,43,51,0.4);
-  text-align: center;
-}
+.btn-note { font-size: 12px; color: rgba(36,43,51,0.4); text-align: center; }
 
-/* ── DIVIDER ── */
-.divider {
-  height: 2px;
-  background: linear-gradient(90deg, var(--red), var(--indigo));
-}
+/* DIVIDER */
+.divider { height: 2px; background: linear-gradient(90deg, var(--red), var(--indigo)); }
 
-/* ── QUÉ ES ── */
-.what-section {
-  padding: 96px 48px;
-}
+/* SECCIONES */
 .section-tag {
   font-size: 11px; font-weight: 700;
   letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--red); margin-bottom: 20px;
   display: flex; align-items: center; gap: 10px;
 }
-.section-tag::after {
-  content: ''; width: 32px; height: 1px; background: var(--red);
-}
+.section-tag::after { content: ''; width: 32px; height: 1px; background: var(--red); }
 h2 {
-  
   font-size: clamp(40px, 5vw, 64px);
   line-height: 0.95; letter-spacing: -1px;
   color: var(--indigo); margin-bottom: 24px;
 }
-h2 em { font-style: normal; }
 
+/* QUÉ ES */
+.what-section { padding: 96px 48px; }
 .what-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  margin-top: 16px;
-  align-items: start;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; margin-top: 16px; align-items: start;
 }
-.what-intro {
-  font-size: 17px; line-height: 1.75;
-  color: rgba(36,43,51,0.72);
-}
+.what-intro { font-size: 17px; line-height: 1.75; color: rgba(36,43,51,0.72); }
 .what-intro p + p { margin-top: 16px; }
 .what-intro strong { color: var(--dark); font-weight: 700; }
-
-.definition-box {
-  background: var(--indigo);
-  border-radius: 4px;
-  padding: 36px 32px;
-}
-.definition-box p {
-  font-size: 16px; line-height: 1.75;
-  color: rgba(245,245,245,0.75);
-}
+.definition-box { background: var(--indigo); border-radius: 4px; padding: 36px 32px; }
+.definition-box p { font-size: 16px; line-height: 1.75; color: rgba(245,245,245,0.75); }
 .definition-box p + p { margin-top: 16px; }
 .definition-box strong { color: white; font-weight: 700; }
 .definition-label {
@@ -220,119 +174,82 @@ h2 em { font-style: normal; }
   color: var(--red); font-weight: 700; margin-bottom: 16px;
 }
 
-/* ── PERFILES ── */
-.profiles-section {
-  padding: 0 48px 96px;
-}
+/* PERFILES */
+.profiles-section { padding: 96px 48px; }
 .profiles-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  margin-top: 48px;
-  border: 1.5px solid var(--indigo);
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  margin-top: 48px; border: 1.5px solid var(--indigo);
 }
 .profile-card {
-  padding: 32px 24px;
+  padding: 28px 20px;
   border-right: 1px solid rgba(63,59,120,0.2);
-  cursor: default;
-  transition: background 0.25s;
+  cursor: default; transition: background 0.25s;
+  background: var(--cream);
 }
 .profile-card:last-child { border-right: none; }
 .profile-card:hover { background: var(--red); }
 .profile-card:hover .profile-icon { color: rgba(255,255,255,0.9); }
 .profile-card:hover .profile-title { color: white; }
 .profile-card:hover .profile-desc { color: rgba(255,255,255,0.7); }
-.profile-icon {
-  font-size: 26px; margin-bottom: 14px;
-  color: var(--indigo); transition: color 0.25s;
-}
+.profile-icon { font-size: 24px; margin-bottom: 12px; color: var(--indigo); transition: color 0.25s; }
 .profile-title {
-  font-size: 13px; font-weight: 700;
-  color: var(--indigo); margin-bottom: 8px;
-  transition: color 0.25s; line-height: 1.3;
+  font-size: 12px; font-weight: 700; color: var(--indigo);
+  margin-bottom: 8px; transition: color 0.25s; line-height: 1.3;
 }
-.profile-desc {
-  font-size: 12px; line-height: 1.65;
-  color: rgba(36,43,51,0.55);
-  transition: color 0.25s;
-}
+.profile-desc { font-size: 11px; line-height: 1.65; color: rgba(36,43,51,0.55); transition: color 0.25s; }
 
-/* ── CTA BAND ── */
-.cta-band {
-  padding: 80px 48px;
-}
+/* CTA BAND */
+.cta-band { padding: 80px 48px; }
 .cta-band-inner {
-  background: var(--red);
-  border-radius: 4px;
+  background: var(--red); border-radius: 4px;
   padding: 64px 56px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 48px;
-  align-items: center;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 48px; align-items: center;
 }
 .cta-band h3 {
-  
-  font-size: clamp(32px, 4vw, 52px);
-  line-height: 1;
-  color: white;
-  letter-spacing: -0.5px;
+  font-size: clamp(32px, 4vw, 52px); line-height: 1;
+  color: white; letter-spacing: -0.5px;
 }
 .cta-band p {
   font-size: 15px; line-height: 1.65;
-  color: rgba(255,255,255,0.72);
-  margin-top: 12px; max-width: 480px;
+  color: rgba(255,255,255,0.72); margin-top: 12px; max-width: 480px;
 }
-.cta-band-actions {
-  display: flex; flex-direction: column; gap: 12px;
-  min-width: 220px;
-}
+.cta-band-actions { display: flex; flex-direction: column; gap: 12px; min-width: 220px; }
 .btn-white {
-  display: inline-block;
-  background: white; color: var(--red);
-  font-family: 'Trap', sans-serif;
-  font-size: 14px; font-weight: 700;
-  padding: 16px 32px; border-radius: 3px;
-  text-decoration: none; text-align: center;
-  letter-spacing: 0.3px;
+  display: inline-block; background: white; color: var(--red);
+  font-family: 'Trap', sans-serif; font-size: 14px; font-weight: 700;
+  padding: 16px 32px; border-radius: 3px; text-decoration: none;
+  text-align: center; letter-spacing: 0.3px;
   transition: transform 0.15s, box-shadow 0.15s;
 }
 .btn-white:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
 .btn-white-outline {
   display: inline-block;
   border: 1.5px solid rgba(255,255,255,0.5); color: white;
-  font-family: 'Trap', sans-serif;
-  font-size: 14px; font-weight: 700;
-  padding: 15px 32px; border-radius: 3px;
-  text-decoration: none; text-align: center;
-  letter-spacing: 0.3px;
+  font-family: 'Trap', sans-serif; font-size: 14px; font-weight: 700;
+  padding: 15px 32px; border-radius: 3px; text-decoration: none;
+  text-align: center; letter-spacing: 0.3px;
   transition: border-color 0.2s, background 0.2s;
 }
 .btn-white-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
-  background: var(--dark);
-  padding: 28px 48px;
+  background: var(--dark); padding: 28px 48px;
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: 16px;
 }
-.footer-logo {
-  font-family: 'Nougatine', sans-serif;
-  font-size: 18px; color: var(--cream); letter-spacing: 0.5px;
-}
-.footer-logo span { color: var(--red); }
+.footer-logo { font-family: 'Nougatine', sans-serif; font-size: 18px; color: var(--cream); letter-spacing: 0.5px; }
 .footer-links { display: flex; gap: 24px; }
-.footer-links a {
-  font-size: 13px; color: rgba(236,228,221,0.45);
-  text-decoration: none; transition: color 0.2s;
-}
+.footer-links a { font-size: 13px; color: rgba(236,228,221,0.45); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--cream); }
 .footer-copy { font-size: 12px; color: rgba(236,228,221,0.3); }
 
-/* ── FADE IN ── */
+/* FADE */
 .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 0 20px; }
   .hero { padding: 100px 20px 60px; }
@@ -352,9 +269,8 @@ footer {
 </head>
 <body class="grid-cream">
 
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="index.html">Mana<span>Mar</span></a>
+  <a class="nav-logo" href="index.html">ManaMar</a>
   <div class="nav-links">
     <a href="como-funciona.html">Cómo funciona</a>
     <a href="https://mana-mar.com" target="_blank">Web principal</a>
@@ -362,66 +278,63 @@ footer {
   <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="nav-cta">Quiero contribuir</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">
     <span class="hero-badge">Programa Oficial</span>
     <span class="hero-year">Manamar · 2026</span>
   </div>
-  <h1>Mana<em>Mar</em><br>Contri<em>butors</em></h1>
+  <h1>ManaMar<br>Contributors</h1>
   <div class="hero-layout">
     <p class="hero-desc">
-      Los profesionales del mar que construyen el <strong>primer mapa submarino colaborativo de calidad verificada</strong> del Mediterráneo.<br><br>
-      Tu conocimiento del fondo marino vale más que mil puntos aleatorios. Aquí es donde se convierte en cartografía real.
+      ¿Conoces bien tu zona? Queremos que expertos como tú construyan el primer mapa submarino colaborativo del mundo. Empezando por la costa catalana.<br></br>
+      Cada punto que recibamos será contrastado con una muestra representativa del total de envíos, asegurando el rigor y la calidad de cada contribución en el mapa.
     </p>
     <div class="hero-actions">
-      <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-primary">Quiero ser contributor →</a>
+      <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-primary">Quiero ser Contributor →</a>
       <a href="como-funciona.html" class="btn-outline">Ver cómo funciona</a>
-      <p class="btn-note">El programa arranca en septiembre 2025.<br>Regístrate ahora y te avisamos.</p>
+      <p class="btn-note">Las inscripciones abren en junio 2026.<br>Regístrate ahora y te avisamos.</p>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- QUÉ ES -->
 <section class="what-section">
   <div class="section-tag fade-up">Qué es</div>
-  <h2 class="fade-up">¿Qué es un<br><em>contributor?</em></h2>
+  <h2 class="fade-up">¿Qué es un<br>Contributor?</h2>
   <div class="what-grid">
     <div class="what-intro fade-up">
-      <p>Un Manamar Contributor es un <strong>profesional del mar verificado</strong> que aporta puntos GPS de calidad al mapa colaborativo de Manamar.</p>
-      <p>No es crowdsourcing masivo. Es una capa de datos construida por personas con <strong>años de inmersiones reales</strong> en zonas concretas — instructores, biólogos, patrones de barco, fotógrafos subacuáticos.</p>
-      <p>Cada punto que aportas lleva tu nombre. Cada inmersión que has hecho tiene un lugar en el mapa.</p>
+      <p>Un Manamar Contributor es alguien con <strong>conocimiento real del relieve y las zonas de interés</strong> de su costa — y que quiere que ese conocimiento forme parte del mapa.</p>
+      <p>No es crowdsourcing masivo. Es una capa de datos construida por personas que conocen su zona como nadie: pescadores, buceadores, fotógrafos, biólogos, guías.</p>
+      <p>Cada punto que aportes llevará tu nombre. Cada zona que conoces tendrá un lugar en el mapa.</p>
     </div>
     <div class="definition-box fade-up">
       <div class="definition-label">La diferencia</div>
-      <p>Un punto aportado por un instructor con <strong>15 años buceando en el Cap de Creus</strong> vale más que 300 puntos aleatorios de usuarios.</p>
-      <p>Por eso existe el programa Contributors. Para que el mapa de 2026 sea <strong>fiable desde el primer día</strong>.</p>
+      <p>El conocimiento local no se descarga. Se construye con años en el agua. Eso es lo que buscamos.</p>
+      <p>Por eso existe el programa Contributors. Para que el mapa de 2027 sea <strong>fiable desde el primer día</strong>.</p>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PERFILES -->
 <section class="profiles-section">
   <div class="section-tag fade-up">Perfiles</div>
-  <h2 class="fade-up">¿Quién puede<br><em>contribuir?</em></h2>
+  <h2 class="fade-up">¿Quién puede<br>contribuir?</h2>
   <div class="profiles-grid fade-up">
     <div class="profile-card">
       <div class="profile-icon">🤿</div>
-      <div class="profile-title">Instructores y centros de buceo</div>
-      <div class="profile-desc">Con conocimiento profundo del relieve local y años de inmersiones en la misma zona.</div>
+      <div class="profile-title">Buceadores e instructores</div>
+      <div class="profile-desc">Con años de inmersiones en la misma zona y conocimiento profundo del fondo.</div>
     </div>
     <div class="profile-card">
       <div class="profile-icon">⚓</div>
-      <div class="profile-title">Pescadores y patrones de barco</div>
+      <div class="profile-title">Pescadores y patrones</div>
       <div class="profile-desc">Conocedores de fondos, corrientes y puntos que ningún mapa oficial recoge.</div>
     </div>
     <div class="profile-card">
       <div class="profile-icon">🔬</div>
-      <div class="profile-title">Biólogos marinos</div>
+      <div class="profile-title">Biólogos marinos y Científicos</div>
       <div class="profile-desc">Precisión científica y datos verificados sobre ecosistemas y biodiversidad.</div>
     </div>
     <div class="profile-card">
@@ -432,17 +345,16 @@ footer {
     <div class="profile-card">
       <div class="profile-icon">📷</div>
       <div class="profile-title">Fotógrafos subacuáticos</div>
-      <div class="profile-desc">Documentación visual de alta calidad que enriquece cada punto del mapa.</div>
+      <div class="profile-desc">Documentación visual de calidad que enriquece cada punto del mapa.</div>
     </div>
   </div>
 </section>
 
-<!-- CTA BAND -->
 <section class="cta-band">
-  <div class="cta-band-inner grid-dark fade-up">
+  <div class="cta-band-inner fade-up">
     <div>
       <h3>¿Listo para<br>contribuir?</h3>
-      <p>El programa arranca en septiembre 2025. Déjanos tus datos ahora y serás de los primeros en recibir el aviso — con acceso prioritario.</p>
+      <p>Las inscripciones abren en junio 2026. Déjanos tus datos ahora y serás de los primeros en recibir el aviso para enviarnos tus puntos.</p>
     </div>
     <div class="cta-band-actions">
       <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn-white">Registrarme ahora</a>
@@ -451,11 +363,9 @@ footer {
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Mana<span>Mar</span></div>
+  <div class="footer-logo">ManaMar</div>
   <div class="footer-links">
-    <a href="https://mana-mar.com" target="_blank">mana-mar.com</a>
     <a href="https://instagram.com/manamarbcn" target="_blank">@manamarbcn</a>
     <a href="como-funciona.html">Cómo funciona</a>
   </div>
