@@ -78,17 +78,44 @@ h2{font-size:clamp(36px,4.5vw,56px);line-height:0.95;letter-spacing:-1px;color:v
 .tl-reward-pill{margin-left:auto;background:var(--red);color:white;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:2px;white-space:nowrap;flex-shrink:0;}
 
 /* BENEFITS */
-.benefits-section{background:var(--indigo);}
-.benefits-section .section-tag{color:rgba(255,255,255,0.5);}
-.benefits-section .section-tag::after{background:rgba(255,255,255,0.3);}
-.benefits-section h2{color:white;}
-.benefits-intro{font-size:16px;color:rgba(245,245,245,0.6);max-width:540px;line-height:1.7;margin-top:12px;margin-bottom:48px;}
+.benefits-section{background:var(--cream);}
+.benefits-section .section-tag{color:var(--red);}
+.benefits-section .section-tag::after{background:var(--red);}
+.benefits-section h2{color:var(--indigo);}
+.benefits-intro{font-size:16px;color:rgba(36,43,51,0.62);max-width:540px;line-height:1.7;margin-top:12px;margin-bottom:48px;}
 .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-.benefit-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:28px 24px;transition:background 0.2s,border-color 0.2s;}
-.benefit-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(215,57,84,0.4);}
+.benefit-card{background:white;border:1px solid rgba(63,59,120,0.1);border-radius:4px;padding:28px 24px;transition:background 0.2s,border-color 0.2s;}
+.benefit-card:hover{background:#F0EAE4;border-color:rgba(215,57,84,0.3);}
 .benefit-num{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--red);margin-bottom:14px;}
-.benefit-title{font-size:15px;font-weight:700;color:white;margin-bottom:8px;}
-.benefit-desc{font-size:13px;line-height:1.65;color:rgba(245,245,245,0.55);}
+.benefit-title{font-size:15px;font-weight:700;color:var(--indigo);margin-bottom:8px;}
+.benefit-desc{font-size:13px;line-height:1.65;color:rgba(36,43,51,0.58);}
+
+/* MÉTRIQUES */
+.metrics-section{background:var(--indigo);}
+.metrics-section .section-tag{color:rgba(255,255,255,0.5);}
+.metrics-section .section-tag::after{background:rgba(255,255,255,0.3);}
+.metrics-section h2{color:white;}
+.metrics-intro{font-size:16px;color:rgba(245,245,245,0.6);max-width:540px;line-height:1.7;margin-top:12px;margin-bottom:48px;}
+.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.1);border-radius:6px;overflow:hidden;}
+.metric-card{background:rgba(255,255,255,0.05);padding:32px 28px;position:relative;transition:background 0.2s;}
+.metric-card:hover{background:rgba(255,255,255,0.1);}
+.metric-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);}
+.metric-card:hover::after{transform:scaleX(1);}
+.metric-icon{font-size:26px;margin-bottom:14px;line-height:1;}
+.metric-name{font-size:15px;font-weight:700;color:white;margin-bottom:6px;}
+.metric-desc{font-size:13px;line-height:1.65;color:rgba(245,245,245,0.55);margin-bottom:16px;}
+.metric-pts-row{display:flex;align-items:center;gap:10px;}
+.metric-pts{font-family:'Trap',sans-serif;font-weight:700;font-size:22px;color:white;letter-spacing:-0.5px;line-height:1;}
+.metric-pts-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+.metric-bar{margin-top:12px;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;}
+.metric-bar-fill{height:100%;border-radius:2px;background:rgba(255,255,255,0.35);transition:width 1s ease;}
+.metric-card--photos .metric-bar-fill{background:var(--red);}
+.metric-card--photos{background:rgba(215,57,84,0.08);}
+.metric-card--photos .metric-pts{color:white;}
+.metrics-total{margin-top:2px;background:rgba(0,0,0,0.2);border-radius:0 0 5px 5px;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.metrics-total-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(245,245,245,0.45);}
+.metrics-total-num{font-family:'Trap',sans-serif;font-weight:700;font-size:26px;color:white;letter-spacing:-0.5px;}
+.metrics-total-sub{font-size:12px;color:rgba(245,245,245,0.45);margin-top:2px;}
 
 /* REQUISITOS */
 .req-section{background:var(--red);}
@@ -289,7 +316,71 @@ footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:spa
 
 <div class="divider"></div>
 
-<section class="benefits-section">
+<section class="metrics-section" id="metriques">
+  <div class="section-tag fade-up" data-i18n="metrics_tag">Mètriques</div>
+  <h2 class="fade-up" data-i18n="metrics_h2">Com es compten<br>els punts</h2>
+  <p class="metrics-intro fade-up" data-i18n="metrics_intro">Cada punt puntua en funció de com de complet és. Si varios contributors marquen el mateix lloc, els usuaris i els punts amb més puntuació tenen prioritat a l'hora de ser seleccionats per al mapa.</p>
+
+  <div class="metrics-grid fade-up">
+
+    <div class="metric-card">
+      <div class="metric-icon">📍</div>
+      <div class="metric-name" data-i18n="metric_1_name">Creació</div>
+      <div class="metric-desc" data-i18n="metric_1_desc">Simplement marcar un punt nou al mapa ja compta. Cada coordenada nova és coneixement que no existia.</div>
+      <div class="metric-pts-row">
+        <div class="metric-pts">+5 pts</div>
+        <div class="metric-pts-label">per punt creat</div>
+      </div>
+      <div class="metric-bar"><div class="metric-bar-fill" style="width:25%"></div></div>
+    </div>
+
+    <div class="metric-card metric-card--photos">
+      <div class="metric-icon">📸</div>
+      <div class="metric-name" data-i18n="metric_2_name">Fotos</div>
+      <div class="metric-desc" data-i18n="metric_2_desc">Fins a 5 fotos per punt, cadascuna suma. Les imatges són la prova que el punt existeix i té valor real.</div>
+      <div class="metric-pts-row">
+        <div class="metric-pts">+2 pts</div>
+        <div class="metric-pts-label">per foto · màx +10 pts</div>
+      </div>
+      <div class="metric-bar"><div class="metric-bar-fill" style="width:50%"></div></div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon">🏷️</div>
+      <div class="metric-name" data-i18n="metric_3_name">Tipus</div>
+      <div class="metric-desc" data-i18n="metric_3_desc">Classifica el punt: peix, mol·lusc, cova, vegetació, referència... El tipus fa el mapa filtrable i útil.</div>
+      <div class="metric-pts-row">
+        <div class="metric-pts">+3 pts</div>
+        <div class="metric-pts-label">per punt classificat</div>
+      </div>
+      <div class="metric-bar"><div class="metric-bar-fill" style="width:15%"></div></div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon">📝</div>
+      <div class="metric-name" data-i18n="metric_4_name">Descripció</div>
+      <div class="metric-desc" data-i18n="metric_4_desc">Profunditat, condicions, espècie, context. Qualsevol nota que ajudi a entendre el punt suma puntuació extra.</div>
+      <div class="metric-pts-row">
+        <div class="metric-pts">+2 pts</div>
+        <div class="metric-pts-label">per punt descrit</div>
+      </div>
+      <div class="metric-bar"><div class="metric-bar-fill" style="width:10%"></div></div>
+    </div>
+
+  </div>
+
+  <div class="metrics-total fade-up">
+    <div>
+      <div class="metrics-total-label" data-i18n="metrics_max_label">Màxim per punt</div>
+      <div class="metrics-total-sub" data-i18n="metrics_max_sub">Creació + fotos (×5) + tipus + descripció</div>
+    </div>
+    <div class="metrics-total-num">20 pts</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="benefits-section grid-cream">
   <div class="section-tag fade-up" data-i18n="benefits_tag">El que reps</div>
   <h2 class="fade-up" data-i18n="benefits_h2">La teva contribució<br>té valor</h2>
   <p class="benefits-intro fade-up" data-i18n="benefits_intro">Ser contributor no és només aportar dades. És formar part de l'equip que construeix el primer mapa submarí col·laboratiu de qualitat professional.</p>
