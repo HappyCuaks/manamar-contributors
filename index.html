@@ -4,30 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manamar Contributors</title>
+<link rel="stylesheet" href="assets/css/fonts.css">
 <style>
-@font-face { font-family:'Trap'; font-weight:500; src:url('assets/fonts/Trap-Medium.ttf') format('truetype'); }
-@font-face { font-family:'Trap'; font-weight:700; src:url('assets/fonts/Trap-Bold.ttf') format('truetype'); }
-@font-face { font-family:'Nougatine'; font-weight:400; src:url('assets/fonts/Nougatine_Regular_400.ttf') format('truetype'); }
-:root {
-  --cream:#ECE4DD; --red:#D73954; --red-dark:#b02d44;
-  --indigo:#3F3B78; --purple:#845889; --yellow:#D09F47;
-  --dark:#242B33; --white:#F5F5F5;
-}
+:root{--cream:#ECE4DD;--red:#D73954;--red-dark:#b02d44;--indigo:#3F3B78;--purple:#845889;--yellow:#D09F47;--green:#88AD4D;--dark:#242B33;--white:#F5F5F5;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Trap',sans-serif;font-weight:500;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");opacity:0.03;pointer-events:none;z-index:9999;}
+.brand{font-family:'Nougatine',serif;font-weight:400;text-transform:none;letter-spacing:0.5px;}
 .grid-cream{background-color:var(--cream);position:relative;}
 .grid-cream::before{content:'';position:absolute;inset:0;background-image:url('assets/img/grid-pattern.svg');background-repeat:repeat;background-size:128px 128px;opacity:0.25;pointer-events:none;z-index:0;}
 .grid-cream>*{position:relative;z-index:1;}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--cream);border-bottom:1px solid rgba(216,59,85,0.2);padding:0 48px;height:60px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{font-family:'Nougatine',sans-serif;font-size:22px;color:var(--indigo);text-decoration:none;letter-spacing:0.5px;}
-.nav-right{display:flex;align-items:center;gap:12px;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 48px;background:rgba(236,228,221,0.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(63,59,120,0.1);}
+nav.scrolled{background:rgba(236,228,221,0.97);box-shadow:0 1px 24px rgba(63,59,120,0.08);}
+.nav-logo{font-family:'Nougatine',serif;font-size:22px;color:var(--red);text-decoration:none;letter-spacing:0.5px;}
+.nav-right{display:flex;align-items:center;gap:12px;justify-content:flex-end;}
 .lang-switcher{display:flex;gap:2px;align-items:center;background:rgba(63,59,120,0.08);border-radius:3px;padding:2px;}
 .lang-btn{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--indigo);background:none;border:none;padding:4px 8px;border-radius:2px;cursor:pointer;opacity:0.45;transition:opacity 0.2s,background 0.2s;font-family:'Trap',sans-serif;}
 .lang-btn:hover{opacity:0.8;}
 .lang-btn.active{background:var(--indigo);color:white;opacity:1;}
 .nav-cta{background:var(--red);color:white;font-family:'Trap',sans-serif;font-size:13px;font-weight:700;padding:9px 22px;border-radius:3px;text-decoration:none;letter-spacing:0.3px;transition:background 0.2s;}
 .nav-cta:hover{background:var(--red-dark);}
-.hero{min-height:100vh;padding:120px 48px 80px;display:flex;flex-direction:column;justify-content:center;}
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--indigo);border-radius:1px;transition:transform 0.25s,opacity 0.25s;}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.nav-mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;z-index:99;flex-direction:column;background:rgba(236,228,221,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(63,59,120,0.1);max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
+.nav-mobile-menu.open{max-height:280px;}
+.nav-mobile-menu a{font-size:15px;font-weight:700;color:var(--indigo);text-decoration:none;padding:14px 20px;border-bottom:1px solid rgba(63,59,120,0.06);}
+
+.hero{min-height:100vh;padding:128px 48px 80px;display:flex;flex-direction:column;justify-content:center;}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;}
 .hero-badge{background:var(--red);color:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:2px;}
 .hero-year{font-size:12px;color:rgba(36,43,51,0.45);letter-spacing:1px;}
@@ -37,15 +44,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--cream);bord
 .hero-desc strong{color:var(--indigo);font-weight:700;}
 .hero-desc-sub{font-size:15px;line-height:1.7;color:rgba(36,43,51,0.5);max-width:480px;margin-top:20px;}
 .hero-actions{display:flex;flex-direction:column;gap:16px;padding-top:4px;}
+
 .btn-primary{display:inline-block;background:var(--red);color:white;font-family:'Trap',sans-serif;font-size:14px;font-weight:700;padding:16px 32px;border-radius:3px;text-decoration:none;letter-spacing:0.3px;text-align:center;transition:background 0.2s,transform 0.15s;}
 .btn-primary:hover{background:var(--red-dark);transform:translateY(-1px);}
 .btn-outline{display:inline-block;border:1.5px solid var(--indigo);color:var(--indigo);font-family:'Trap',sans-serif;font-size:14px;font-weight:700;padding:15px 32px;border-radius:3px;text-decoration:none;letter-spacing:0.3px;text-align:center;transition:background 0.2s,color 0.2s;}
 .btn-outline:hover{background:var(--indigo);color:white;}
 .btn-note{font-size:12px;color:rgba(36,43,51,0.4);text-align:center;}
-.divider{height:2px;background:linear-gradient(90deg,var(--red),var(--indigo));}
+
+.divider{height:2px;background:linear-gradient(90deg,var(--red),var(--indigo),var(--purple));}
+
 .section-tag{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
 .section-tag::after{content:'';width:32px;height:1px;background:var(--red);}
 h2{font-size:clamp(40px,5vw,64px);line-height:0.95;letter-spacing:-1px;color:var(--indigo);margin-bottom:24px;}
+
 .what-section{padding:96px 48px;}
 .what-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:16px;align-items:start;}
 .what-intro{font-size:17px;line-height:1.75;color:rgba(36,43,51,0.72);}
@@ -56,6 +67,7 @@ h2{font-size:clamp(40px,5vw,64px);line-height:0.95;letter-spacing:-1px;color:var
 .definition-box p+p{margin-top:16px;}
 .definition-box strong{color:white;font-weight:700;}
 .definition-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:16px;}
+
 .profiles-section{padding:96px 48px;}
 .profiles-grid{display:grid;grid-template-columns:repeat(5,1fr);margin-top:48px;border:1.5px solid var(--indigo);}
 .profile-card{padding:28px 20px;border-right:1px solid rgba(63,59,120,0.2);cursor:default;transition:background 0.25s;background:var(--cream);}
@@ -66,6 +78,7 @@ h2{font-size:clamp(40px,5vw,64px);line-height:0.95;letter-spacing:-1px;color:var
 .profile-icon{font-size:24px;margin-bottom:12px;color:var(--indigo);transition:color 0.25s;}
 .profile-title{font-size:12px;font-weight:700;color:var(--indigo);margin-bottom:8px;transition:color 0.25s;line-height:1.3;}
 .profile-desc{font-size:11px;line-height:1.65;color:rgba(36,43,51,0.55);transition:color 0.25s;}
+
 .cta-band{padding:80px 48px;}
 .cta-band-inner{background:var(--red);border-radius:4px;padding:64px 56px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
 .cta-band h3{font-size:clamp(32px,4vw,52px);line-height:1;color:white;letter-spacing:-0.5px;}
@@ -75,16 +88,39 @@ h2{font-size:clamp(40px,5vw,64px);line-height:0.95;letter-spacing:-1px;color:var
 .btn-white:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,0.15);}
 .btn-white-outline{display:inline-block;border:1.5px solid rgba(255,255,255,0.5);color:white;font-family:'Trap',sans-serif;font-size:14px;font-weight:700;padding:15px 32px;border-radius:3px;text-decoration:none;text-align:center;letter-spacing:0.3px;transition:border-color 0.2s,background 0.2s;}
 .btn-white-outline:hover{border-color:white;background:rgba(255,255,255,0.1);}
+
 footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-logo{font-family:'Nougatine',sans-serif;font-size:18px;color:var(--cream);letter-spacing:0.5px;}
+.footer-logo{font-family:'Nougatine',serif;font-size:18px;color:var(--cream);letter-spacing:0.5px;}
 .footer-links{display:flex;gap:24px;}
 .footer-links a{font-size:13px;color:rgba(236,228,221,0.45);text-decoration:none;transition:color 0.2s;}
 .footer-links a:hover{color:var(--cream);}
 .footer-copy{font-size:12px;color:rgba(236,228,221,0.3);}
-.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease;}
-.fade-up.visible{opacity:1;transform:translateY(0);}
-@media(max-width:900px){nav{padding:0 20px;}.hero{padding:100px 20px 60px;}.hero-layout{grid-template-columns:1fr;gap:40px;}.what-section,.profiles-section,.cta-band{padding-left:20px;padding-right:20px;}.what-grid{grid-template-columns:1fr;gap:40px;}.profiles-grid{grid-template-columns:1fr 1fr;}.profile-card{border-bottom:1px solid rgba(63,59,120,0.2);}.cta-band-inner{grid-template-columns:1fr;}footer{padding:24px 20px;}}
-@media(max-width:600px){.profiles-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+
+@media(max-width:768px){
+  nav{padding:0 20px;height:60px;}
+  .nav-mobile-menu{top:60px;}
+  .nav-logo{font-size:18px;}
+  .nav-hamburger{display:flex;}
+  .nav-cta{display:none;}
+  .lang-switcher{display:none;}
+  .nav-mobile-menu{display:flex;}
+  h1{font-size:clamp(36px,10vw,48px);}
+  h2{font-size:clamp(28px,7vw,40px);}
+  .hero{padding:96px 20px 56px;}
+  .hero-layout{grid-template-columns:1fr;gap:40px;}
+  .what-section,.profiles-section,.cta-band{padding:56px 20px;}
+  .what-grid{grid-template-columns:1fr;gap:40px;}
+  .profiles-grid{grid-template-columns:1fr 1fr;}
+  .profile-card{border-bottom:1px solid rgba(63,59,120,0.2);}
+  .cta-band-inner{grid-template-columns:1fr;padding:40px 28px;}
+  footer{flex-direction:column;align-items:center;text-align:center;padding:32px 20px;}
+  .footer-links{flex-direction:column;align-items:center;gap:14px;}
+}
+@media(max-width:500px){.profiles-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body class="grid-cream">
@@ -98,15 +134,22 @@ footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:spa
   </div>
   <div class="nav-right">
     <a href="https://forms.gle/eNXkwGBBJvVmhNHh9" target="_blank" class="nav-cta" data-i18n="nav_cta">Vull contribuir</a>
+    <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="https://forms.gle/eNXkwGBBJvVmhNHh9" target="_blank" data-i18n="nav_cta">Vull contribuir</a>
+  <a href="how-to/" data-i18n="nav_how">Com funciona</a>
+</div>
 
 <section class="hero">
   <div class="hero-eyebrow">
     <span class="hero-badge" data-i18n="hero_badge">Programa Oficial</span>
     <span class="hero-year" data-i18n="hero_year">Manamar · 2026</span>
   </div>
-  <h1>ManaMar<br>Contributors</h1>
+  <h1><span class="brand">ManaMar</span><br>Contributors</h1>
   <div class="hero-layout">
     <div>
       <p class="hero-desc" data-i18n="hero_desc_1">Coneixes bé la teva zona? Volem que experts com tu construeixin el primer mapa submarí col·laboratiu del món. Començant per la costa catalana.</p>
@@ -123,15 +166,15 @@ footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:spa
 <div class="divider"></div>
 
 <section class="what-section">
-  <div class="section-tag fade-up" data-i18n="what_tag">Què és</div>
-  <h2 class="fade-up" data-i18n="what_h2">Què és un<br>Contributor?</h2>
+  <div class="section-tag reveal" data-i18n="what_tag">Què és</div>
+  <h2 class="reveal" data-i18n="what_h2">Què és un<br>Contributor?</h2>
   <div class="what-grid">
-    <div class="what-intro fade-up">
+    <div class="what-intro reveal">
       <p data-i18n="what_p1">Un Manamar Contributor és algú amb <strong>coneixement real del relleu i les zones d'interès</strong> de la seva costa — i que vol que aquest coneixement formi part del mapa.</p>
       <p data-i18n="what_p2">No és crowdsourcing massiu. És una capa de dades construïda per persones que coneixen la seva zona com ningú: pescadors, bussejadors, fotògrafs, biòlegs, guies.</p>
       <p data-i18n="what_p3">Cada punt que aportes portarà el teu nom. Cada zona que coneixes tindrà un lloc al mapa.</p>
     </div>
-    <div class="definition-box fade-up">
+    <div class="definition-box reveal">
       <div class="definition-label" data-i18n="what_diff_label">La diferència</div>
       <p data-i18n="what_diff_1">El coneixement local no es pot generar automàticament. Es construeix amb persones que passen temps a l'aigua. Això és el que busquem.</p>
       <p data-i18n="what_diff_2">Per això existeix el programa Contributors. Perquè el mapa del 2027 sigui <strong>fiable des del primer dia</strong>.</p>
@@ -142,9 +185,9 @@ footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:spa
 <div class="divider"></div>
 
 <section class="profiles-section">
-  <div class="section-tag fade-up" data-i18n="profiles_tag">Perfils</div>
-  <h2 class="fade-up" data-i18n="profiles_h2">Qui pot<br>contribuir?</h2>
-  <div class="profiles-grid fade-up">
+  <div class="section-tag reveal" data-i18n="profiles_tag">Perfils</div>
+  <h2 class="reveal" data-i18n="profiles_h2">Qui pot<br>contribuir?</h2>
+  <div class="profiles-grid reveal">
     <div class="profile-card">
       <div class="profile-icon">🤿</div>
       <div class="profile-title" data-i18n="profile_1_title">Bussejadors i instructors</div>
@@ -174,7 +217,7 @@ footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:spa
 </section>
 
 <section class="cta-band">
-  <div class="cta-band-inner fade-up">
+  <div class="cta-band-inner reveal">
     <div>
       <h3 data-i18n="cta_h3">Llest per<br>contribuir?</h3>
       <p data-i18n="cta_desc">Les inscripcions obren el juny 2026. Deixa'ns les teves dades ara i seràs dels primers a rebre l'avís per enviar-nos els teus punts.</p>
@@ -223,10 +266,31 @@ function setLang(lang) {
 document.addEventListener('DOMContentLoaded', () => {
   setLang(currentLang);
 
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const hamburger = document.querySelector('.nav-hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
+
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 });
 </script>
 </body>
