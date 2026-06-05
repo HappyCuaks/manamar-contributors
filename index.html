@@ -19,6 +19,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:grid;gri
 nav.scrolled{background:rgba(236,228,221,0.97);box-shadow:0 1px 24px rgba(63,59,120,0.08);}
 .nav-logo{font-family:'Nougatine',serif;font-weight:400;font-size:22px;color:var(--red);text-decoration:none;letter-spacing:0.5px;}
 .nav-right{display:flex;align-items:center;gap:12px;justify-content:flex-end;}
+.nav-links{display:flex;align-items:center;}
+.nav-link{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;color:var(--indigo);padding:6px 12px;transition:color 0.2s;display:flex;align-items:center;gap:5px;}
+.nav-link:hover{color:var(--red);}
+.nav-link-num{opacity:0.4;font-weight:500;}
+.nav-dot{font-size:10px;color:rgba(63,59,120,0.22);user-select:none;}
 .lang-switcher{display:flex;align-items:center;}
 .lang-btn{font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(63,59,120,0.38);background:none;border:none;padding:4px 6px;cursor:pointer;transition:color 0.2s;font-family:'Trap',sans-serif;}
 .lang-btn:hover{color:rgba(63,59,120,0.65);}
@@ -107,6 +112,7 @@ footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:spa
   .nav-logo{font-size:18px;}
   .nav-hamburger{display:flex;}
   .nav-cta{display:none;}
+  .nav-links{display:none;}
   .nav-mobile-menu{display:flex;}
   h1{font-size:clamp(36px,10vw,48px);}
   h2{font-size:clamp(28px,7vw,40px);}
@@ -127,7 +133,11 @@ footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:spa
 
 <nav>
   <a class="nav-logo" href="index.html">ManaMar</a>
-  <span></span>
+  <div class="nav-links">
+    <a class="nav-link" href="how-to/"><span class="nav-link-num">01</span> Com funciona</a>
+    <span class="nav-dot">·</span>
+    <a class="nav-link" href="https://forms.gle/eNXkwGBBJvVmhNHh9" target="_blank"><span class="nav-link-num">02</span> Vull contribuir</a>
+  </div>
   <div class="nav-right">
     <div class="lang-switcher">
       <button class="lang-btn" onclick="setLang('ca')">CA</button>
@@ -136,15 +146,14 @@ footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:spa
       <span class="lang-sep">·</span>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <a href="https://forms.gle/eNXkwGBBJvVmhNHh9" target="_blank" class="nav-cta" data-i18n="nav_cta">Vull contribuir</a>
     <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 <div class="nav-mobile-menu" id="mobile-menu">
-  <a href="https://forms.gle/eNXkwGBBJvVmhNHh9" target="_blank" data-i18n="nav_cta">Vull contribuir</a>
-  <a href="how-to/" data-i18n="nav_how">Com funciona</a>
+  <a href="how-to/" data-i18n="nav_how">01 Com funciona</a>
+  <a href="https://forms.gle/eNXkwGBBJvVmhNHh9" target="_blank" data-i18n="nav_cta">02 Vull contribuir</a>
 </div>
 
 <section class="hero">
