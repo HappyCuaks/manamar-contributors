@@ -19,10 +19,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:grid;gri
 nav.scrolled{background:rgba(236,228,221,0.97);box-shadow:0 1px 24px rgba(63,59,120,0.08);}
 .nav-logo{font-family:'Nougatine',serif;font-weight:400;font-size:22px;color:var(--red);text-decoration:none;letter-spacing:0.5px;}
 .nav-right{display:flex;align-items:center;gap:12px;justify-content:flex-end;}
-.lang-switcher{display:flex;gap:2px;align-items:center;background:rgba(63,59,120,0.08);border-radius:3px;padding:2px;}
-.lang-btn{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--indigo);background:none;border:none;padding:4px 8px;border-radius:2px;cursor:pointer;opacity:0.45;transition:opacity 0.2s,background 0.2s;font-family:'Trap',sans-serif;}
-.lang-btn:hover{opacity:0.8;}
-.lang-btn.active{background:var(--indigo);color:white;opacity:1;}
+.lang-switcher{display:flex;align-items:center;}
+.lang-btn{font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(63,59,120,0.38);background:none;border:none;padding:4px 6px;cursor:pointer;transition:color 0.2s;font-family:'Trap',sans-serif;}
+.lang-btn:hover{color:rgba(63,59,120,0.65);}
+.lang-btn.active{color:var(--red);}
+.lang-sep{font-size:10px;color:rgba(63,59,120,0.22);user-select:none;}
 .nav-cta{background:var(--red);color:white;font-family:'Trap',sans-serif;font-size:13px;font-weight:700;padding:9px 22px;border-radius:3px;text-decoration:none;letter-spacing:0.3px;transition:background 0.2s;}
 .nav-cta:hover{background:var(--red-dark);}
 .nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;}
@@ -126,12 +127,15 @@ footer{background:var(--dark);padding:28px 48px;display:flex;justify-content:spa
 
 <nav>
   <a class="nav-logo" href="index.html">ManaMar</a>
-  <div class="lang-switcher">
-    <button class="lang-btn" onclick="setLang('ca')">CA</button>
-    <button class="lang-btn" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
-  </div>
+  <span></span>
   <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="setLang('ca')">CA</button>
+      <span class="lang-sep">·</span>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <span class="lang-sep">·</span>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
     <a href="https://forms.gle/eNXkwGBBJvVmhNHh9" target="_blank" class="nav-cta" data-i18n="nav_cta">Vull contribuir</a>
     <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
