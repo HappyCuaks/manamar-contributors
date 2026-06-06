@@ -546,20 +546,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const phases = document.querySelectorAll('.tl-phase');
+  const phases = Array.from(document.querySelectorAll('.tl-phase'));
   const now = new Date();
-  const ranges = [
-    { from: new Date('2026-06-01'), to: new Date('2026-08-31') },
-    { from: new Date('2026-06-01'), to: new Date('2026-08-31') },
-    { from: new Date('2026-09-01'), to: new Date('2026-09-06') },
-    { from: new Date('2026-09-07'), to: new Date('2026-09-14') },
-    { from: new Date('2026-10-01'), to: new Date('2026-12-31') },
-    { from: new Date('2027-03-01'), to: new Date('2027-12-31') },
-  ];
+  const ranges = phases.map(p => ({
+    from: new Date(p.dataset.from),
+    to: new Date(p.dataset.to + 'T23:59:59')
+  }));
   let activeIdx = -1;
   ranges.forEach((r, i) => {
-    if (now >= r.from && now <= r.to) { phases[i].classList.add('tl-active'); activeIdx = i; }
-    else if (now > r.to) phases[i].classList.add('tl-past');
+    if (now >= r.from && now <= r.to) {
+      phases[i].classList.add('tl-active');
+      if (activeIdx < 0) activeIdx = i;
+    } else if (now > r.to) {
+      phases[i].classList.add('tl-past');
+    }
   });
   const wrap = document.querySelector('.tl-wrap');
   const todayEl = document.getElementById('tl-today');
@@ -590,6 +590,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('tl-today-label').textContent = months[now.getMonth()];
     }
     requestAnimationFrame(positionToday);
+    setTimeout(positionToday, 300);
     window.addEventListener('resize', positionToday);
   }
 
